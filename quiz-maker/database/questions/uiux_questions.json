@@ -1,0 +1,125 @@
+{
+  "subject": "UI/UX",
+  "questions": [
+    {
+      "id": 1,
+      "question": "UI là viết tắt của từ gì trong thiết kế?",
+      "options": ["User Integration", "User Interface", "Universal Interface", "Unified Interaction"],
+      "answer": "User Interface"
+    },
+    {
+      "id": 2,
+      "question": "UX là viết tắt của từ gì?",
+      "options": ["User Experience", "User Execution", "Universal Experience", "User Extension"],
+      "answer": "User Experience"
+    },
+    {
+      "id": 3,
+      "question": "Mục tiêu chính của thiết kế UX là gì?",
+      "options": ["Làm cho sản phẩm trông đẹp nhất có thể", "Tối ưu hóa trải nghiệm người dùng, giúp họ hoàn thành mục tiêu dễ dàng", "Sử dụng nhiều màu sắc nổi bật", "Tăng cường bảo mật cho hệ thống"],
+      "answer": "Tối ưu hóa trải nghiệm người dùng, giúp họ hoàn thành mục tiêu dễ dàng"
+    },
+    {
+      "id": 4,
+      "question": "Wireframe trong thiết kế UI/UX là gì?",
+      "options": ["Một bản thiết kế chi tiết với đầy đủ màu sắc và hình ảnh", "Khung xương cơ bản của giao diện để bố cục các thành phần", "Mã nguồn HTML/CSS", "Phần mềm để thiết kế"],
+      "answer": "Khung xương cơ bản của giao diện để bố cục các thành phần"
+    },
+    {
+      "id": 5,
+      "question": "Prototype là gì?",
+      "options": ["Bản nháp vẽ tay trên giấy", "Phiên bản mô phỏng tương tác của sản phẩm để thử nghiệm", "Logo của thương hiệu", "Bản thiết kế cuối cùng được in ra"],
+      "answer": "Phiên bản mô phỏng tương tác của sản phẩm để thử nghiệm"
+    },
+    {
+      "id": 6,
+      "question": "Khoảng trắng (White space / Negative space) trong thiết kế có vai trò gì?",
+      "options": ["Chỉ để tiết kiệm màu mực in", "Giúp giao diện thoáng đãng, dễ đọc và tập trung vào điểm nhấn", "Là một lỗi thiết kế cần tránh", "Bắt buộc phải có màu trắng"],
+      "answer": "Giúp giao diện thoáng đãng, dễ đọc và tập trung vào điểm nhấn"
+    },
+    {
+      "id": 7,
+      "question": "Typography trong UI liên quan đến yếu tố nào?",
+      "options": ["Cách sắp xếp hình ảnh", "Nghệ thuật sắp chữ, lựa chọn font chữ và trình bày văn bản", "Cách chọn màu sắc", "Hiệu ứng chuyển động (animation)"],
+      "answer": "Nghệ thuật sắp chữ, lựa chọn font chữ và trình bày văn bản"
+    },
+    {
+      "id": 8,
+      "question": "Luật Fitts (Fitts's Law) trong UX nói về điều gì?",
+      "options": ["Màu đỏ luôn thu hút sự chú ý", "Thời gian để di chuyển đến một mục tiêu phụ thuộc vào khoảng cách và kích thước của mục tiêu đó", "Người dùng có trí nhớ ngắn hạn", "Các phần tử giống nhau nên đặt cạnh nhau"],
+      "answer": "Thời gian để di chuyển đến một mục tiêu phụ thuộc vào khoảng cách và kích thước của mục tiêu đó"
+    },
+    {
+      "id": 9,
+      "question": "Trong thiết kế, 'Call to Action' (CTA) là gì?",
+      "options": ["Một lời kêu gọi người dùng thực hiện một hành động cụ thể (ví dụ: nút Đăng ký)", "Phần liên hệ ở cuối trang", "Một hiệu ứng âm thanh", "Hình ảnh động"],
+      "answer": "Một lời kêu gọi người dùng thực hiện một hành động cụ thể (ví dụ: nút Đăng ký)"
+    },
+    {
+      "id": 10,
+      "question": "A/B Testing trong UX là gì?",
+      "options": ["Kiểm tra lỗi phần mềm", "So sánh hai phiên bản của một giao diện để xem phiên bản nào mang lại kết quả tốt hơn", "Kiểm tra màu sắc A và B", "Kiểm tra trình duyệt Apple và Blackberry"],
+      "answer": "So sánh hai phiên bản của một giao diện để xem phiên bản nào mang lại kết quả tốt hơn"
+    },
+    {
+      "id": 11,
+      "question": "Responsive Design (Thiết kế đáp ứng) nhằm mục đích gì?",
+      "options": ["Thiết kế tự động trả lời email", "Giao diện hiển thị tốt và điều chỉnh phù hợp trên mọi kích thước màn hình (điện thoại, máy tính...)", "Tăng tốc độ phản hồi của server", "Phản hồi lại thao tác chuột nhanh hơn"],
+      "answer": "Giao diện hiển thị tốt và điều chỉnh phù hợp trên mọi kích thước màn hình (điện thoại, máy tính...)"
+    },
+    {
+      "id": 12,
+      "question": "Accessibility (Tính tiếp cận) trong UX nghĩa là gì?",
+      "options": ["Đảm bảo trang web tải nhanh", "Thiết kế sao cho người khuyết tật (mù màu, khiếm thị...) cũng có thể sử dụng được", "Quyền truy cập của admin", "Khả năng tìm kiếm trên Google"],
+      "answer": "Thiết kế sao cho người khuyết tật (mù màu, khiếm thị...) cũng có thể sử dụng được"
+    },
+    {
+      "id": 13,
+      "question": "User Persona (Chân dung người dùng) là gì?",
+      "options": ["Hình đại diện của người dùng trên web", "Một nhân vật giả định đại diện cho nhóm người dùng mục tiêu", "Tên tài khoản người dùng", "Bức ảnh chân dung chân thực của khách hàng"],
+      "answer": "Một nhân vật giả định đại diện cho nhóm người dùng mục tiêu"
+    },
+    {
+      "id": 14,
+      "question": "Card Sorting (Sắp xếp thẻ) là một phương pháp dùng để làm gì trong UX?",
+      "options": ["Sắp xếp cấu trúc thông tin (Information Architecture) cho website", "Chơi bài", "Thiết kế các nút bấm", "Sắp xếp màu sắc"],
+      "answer": "Sắp xếp cấu trúc thông tin (Information Architecture) cho website"
+    },
+    {
+      "id": 15,
+      "question": "Độ tương phản (Contrast) trong UI thường được sử dụng để?",
+      "options": ["Làm mờ văn bản", "Làm nổi bật các phần tử quan trọng và tăng tính dễ đọc", "Giảm kích thước file", "Ẩn thông tin"],
+      "answer": "Làm nổi bật các phần tử quan trọng và tăng tính dễ đọc"
+    },
+    {
+      "id": 16,
+      "question": "Heuristic Evaluation (Đánh giá heuristic) là gì?",
+      "options": ["Dùng phần mềm tự động chấm điểm trang web", "Các chuyên gia UX đánh giá giao diện dựa trên các nguyên tắc thiết kế được công nhận", "Khảo sát ý kiến của hàng ngàn người dùng", "Viết mã kiểm thử"],
+      "answer": "Các chuyên gia UX đánh giá giao diện dựa trên các nguyên tắc thiết kế được công nhận"
+    },
+    {
+      "id": 17,
+      "question": "Luật Hick (Hick's Law) khuyên chúng ta điều gì trong thiết kế?",
+      "options": ["Càng nhiều lựa chọn, người dùng đưa ra quyết định càng chậm", "Màu sắc không quan trọng", "Luôn dùng chữ to", "Phải sử dụng hình ảnh thực tế"],
+      "answer": "Càng nhiều lựa chọn, người dùng đưa ra quyết định càng chậm"
+    },
+    {
+      "id": 18,
+      "question": "Breadcrumbs trong thiết kế giao diện có nghĩa là gì?",
+      "options": ["Mảnh vụn bánh mì trang trí", "Thanh điều hướng phụ giúp người dùng biết mình đang ở đâu trong cấu trúc website", "Thông báo lỗi", "Menu ẩn đi khi cuộn"],
+      "answer": "Thanh điều hướng phụ giúp người dùng biết mình đang ở đâu trong cấu trúc website"
+    },
+    {
+      "id": 19,
+      "question": "Phần mềm nào sau đây là công cụ phổ biến nhất hiện nay để thiết kế UI/UX?",
+      "options": ["Microsoft Word", "Figma", "Visual Studio Code", "Notepad"],
+      "answer": "Figma"
+    },
+    {
+      "id": 20,
+      "question": "User Journey Map (Bản đồ hành trình người dùng) giúp gì cho Designer?",
+      "options": ["Xem bản đồ đường đi của người dùng trên Google Maps", "Hình dung được toàn bộ quá trình tương tác của người dùng với sản phẩm từ đầu đến cuối", "Biết được vị trí địa lý của người dùng", "Quản lý mã nguồn"],
+      "answer": "Hình dung được toàn bộ quá trình tương tác của người dùng với sản phẩm từ đầu đến cuối"
+    }
+  ]
+}

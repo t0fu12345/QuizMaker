@@ -1,0 +1,167 @@
+{
+  "subject_name": "SQL Server",
+  "total_files": 16,
+  "exported_at": "2026-07-19T17:54:13Z",
+  "documents": [
+    {
+      "file_name": "slide1.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 4741449,
+      "title": "slide1",
+      "content": "",
+      "metadata": {
+        "pages": 41
+      }
+    },
+    {
+      "file_name": "slide10.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 4233216,
+      "title": "slide10",
+      "content": "",
+      "metadata": {
+        "pages": 39
+      }
+    },
+    {
+      "file_name": "slide11.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 3600428,
+      "title": "slide11",
+      "content": "",
+      "metadata": {
+        "pages": 37
+      }
+    },
+    {
+      "file_name": "slide12.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 2774151,
+      "title": "slide12",
+      "content": "",
+      "metadata": {
+        "pages": 28
+      }
+    },
+    {
+      "file_name": "slide13.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 4590838,
+      "title": "slide13",
+      "content": "",
+      "metadata": {
+        "pages": 38
+      }
+    },
+    {
+      "file_name": "slide14.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 5002312,
+      "title": "slide14",
+      "content": "",
+      "metadata": {
+        "pages": 40
+      }
+    },
+    {
+      "file_name": "slide15.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 2263316,
+      "title": "slide15",
+      "content": "",
+      "metadata": {
+        "pages": 19
+      }
+    },
+    {
+      "file_name": "slide16.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 2607020,
+      "title": "slide16",
+      "content": "",
+      "metadata": {
+        "pages": 23
+      }
+    },
+    {
+      "file_name": "slide2.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 2577537,
+      "title": "slide2",
+      "content": "",
+      "metadata": {
+        "pages": 24
+      }
+    },
+    {
+      "file_name": "slide3.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 2983220,
+      "title": "slide3",
+      "content": "",
+      "metadata": {
+        "pages": 28
+      }
+    },
+    {
+      "file_name": "slide4.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 3474264,
+      "title": "slide4",
+      "content": "",
+      "metadata": {
+        "pages": 30
+      }
+    },
+    {
+      "file_name": "slide5.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 2338071,
+      "title": "slide5",
+      "content": "",
+      "metadata": {
+        "pages": 21
+      }
+    },
+    {
+      "file_name": "slide6.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 2537852,
+      "title": "slide6",
+      "content": "",
+      "metadata": {
+        "pages": 25
+      }
+    },
+    {
+      "file_name": "slide7.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 1904400,
+      "title": "slide7",
+      "content": "",
+      "metadata": {
+        "pages": 18
+      }
+    },
+    {
+      "file_name": "slide8.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 2746230,
+      "title": "slide8",
+      "content": "",
+      "metadata": {
+        "pages": 26
+      }
+    },
+    {
+      "file_name": "slide9.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 3890638,
+      "title": "slide9",
+      "content": "",
+      "metadata": {
+        "pages": 42
+      }
+    }
+  ]
+}

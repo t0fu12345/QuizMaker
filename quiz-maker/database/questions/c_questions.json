@@ -1,0 +1,125 @@
+{
+  "subject": "C",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Ngôn ngữ C do ai phát triển?",
+      "options": ["Dennis Ritchie", "Ken Thompson", "Martin Richards", "Bjarne Stroustrup"],
+      "answer": "Dennis Ritchie"
+    },
+    {
+      "id": 2,
+      "question": "Trong C, từ khóa nào sau đây KHÔNG hợp lệ?",
+      "options": ["int", "float", "DO WHILE", "double"],
+      "answer": "DO WHILE"
+    },
+    {
+      "id": 3,
+      "question": "Phần mở rộng của một file mã nguồn C chuẩn là gì?",
+      "options": [".c", ".cpp", ".cs", ".h"],
+      "answer": ".c"
+    },
+    {
+      "id": 4,
+      "question": "Hàm nào được gọi đầu tiên khi một chương trình C thực thi?",
+      "options": ["start()", "main()", "init()", "begin()"],
+      "answer": "main()"
+    },
+    {
+      "id": 5,
+      "question": "Kiểu dữ liệu 'int' thông thường chiếm bao nhiêu byte trong bộ nhớ (hệ thống 32-bit)?",
+      "options": ["1 byte", "2 bytes", "4 bytes", "8 bytes"],
+      "answer": "4 bytes"
+    },
+    {
+      "id": 6,
+      "question": "Ký hiệu nào được dùng để chú thích nhiều dòng (multi-line comment) trong C?",
+      "options": ["// comment", "/* comment */", "<!-- comment -->", "# comment"],
+      "answer": "/* comment */"
+    },
+    {
+      "id": 7,
+      "question": "Hàm dùng để in dữ liệu ra màn hình trong thư viện chuẩn của C là gì?",
+      "options": ["print()", "console.log()", "printf()", "cout"],
+      "answer": "printf()"
+    },
+    {
+      "id": 8,
+      "question": "Ký tự kết thúc một chuỗi (string) trong C là gì?",
+      "options": ["\\n", "\\0", "\\t", "\\r"],
+      "answer": "\\0"
+    },
+    {
+      "id": 9,
+      "question": "Toán tử chia lấy phần dư trong C là gì?",
+      "options": ["/", "%", "div", "mod"],
+      "answer": "%"
+    },
+    {
+      "id": 10,
+      "question": "Để đọc một số nguyên từ bàn phím, ta dùng hàm nào?",
+      "options": ["gets()", "scanf()", "read()", "input()"],
+      "answer": "scanf()"
+    },
+    {
+      "id": 11,
+      "question": "Cấu trúc vòng lặp nào đảm bảo khối lệnh được thực thi ít nhất một lần?",
+      "options": ["for", "while", "do...while", "Không có cấu trúc nào"],
+      "answer": "do...while"
+    },
+    {
+      "id": 12,
+      "question": "Chỉ số của mảng (array index) trong C bắt đầu từ bao nhiêu?",
+      "options": ["1", "0", "-1", "Tùy ý"],
+      "answer": "0"
+    },
+    {
+      "id": 13,
+      "question": "Toán tử nào được sử dụng để lấy địa chỉ của một biến?",
+      "options": ["*", "&", "@", "#"],
+      "answer": "&"
+    },
+    {
+      "id": 14,
+      "question": "Hàm nào được dùng để lấy độ dài của một chuỗi ký tự?",
+      "options": ["strlen()", "strlength()", "len()", "length()"],
+      "answer": "strlen()"
+    },
+    {
+      "id": 15,
+      "question": "Từ khóa nào được dùng để định nghĩa một kiểu dữ liệu mới hoặc bí danh cho kiểu dữ liệu đã có?",
+      "options": ["struct", "union", "typedef", "define"],
+      "answer": "typedef"
+    },
+    {
+      "id": 16,
+      "question": "Cấu trúc (struct) trong C là gì?",
+      "options": ["Một tập hợp các phần tử cùng kiểu dữ liệu", "Một tập hợp các phần tử có thể khác kiểu dữ liệu", "Một hàm nội trú", "Một kiểu con trỏ"],
+      "answer": "Một tập hợp các phần tử có thể khác kiểu dữ liệu"
+    },
+    {
+      "id": 17,
+      "question": "Toán tử nào được dùng để truy cập vào thành phần của con trỏ struct?",
+      "options": [".", "->", "::", ":"],
+      "answer": "->"
+    },
+    {
+      "id": 18,
+      "question": "Hàm nào được sử dụng để mở một file trong C?",
+      "options": ["open()", "fopen()", "readfile()", "openfile()"],
+      "answer": "fopen()"
+    },
+    {
+      "id": 19,
+      "question": "Chế độ (mode) nào được dùng để mở file để thêm nội dung vào cuối file (append) trong hàm fopen()?",
+      "options": ["w", "r", "a", "x"],
+      "answer": "a"
+    },
+    {
+      "id": 20,
+      "question": "Khi chương trình C kết thúc bình thường, điều gì sẽ tự động xảy ra với các file đang mở?",
+      "options": ["Các file vẫn mở", "Các file tự động bị xóa", "Các file tự động đóng (closed)", "Hệ thống báo lỗi"],
+      "answer": "Các file tự động đóng (closed)"
+    }
+  ]
+}

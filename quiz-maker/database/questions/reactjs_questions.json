@@ -1,0 +1,125 @@
+{
+  "subject": "ReactJS",
+  "questions": [
+    {
+      "id": 1,
+      "question": "ReactJS là một thư viện của ngôn ngữ lập trình nào?",
+      "options": ["Python", "Java", "JavaScript", "C#"],
+      "answer": "JavaScript"
+    },
+    {
+      "id": 2,
+      "question": "ReactJS được phát triển và duy trì bởi công ty nào?",
+      "options": ["Google", "Facebook (Meta)", "Microsoft", "Twitter"],
+      "answer": "Facebook (Meta)"
+    },
+    {
+      "id": 3,
+      "question": "Đặc điểm nổi bật nhất của React là sử dụng công nghệ gì để cập nhật giao diện?",
+      "options": ["Real DOM", "Shadow DOM", "Virtual DOM", "Document Fragment"],
+      "answer": "Virtual DOM"
+    },
+    {
+      "id": 4,
+      "question": "Trong React, JSX là viết tắt của từ gì?",
+      "options": ["JavaScript XML", "Java Syntax Extension", "JSON XML", "JavaScript X-DOM"],
+      "answer": "JavaScript XML"
+    },
+    {
+      "id": 5,
+      "question": "Hook nào được sử dụng để quản lý trạng thái (state) trong một functional component?",
+      "options": ["useEffect", "useState", "useContext", "useReducer"],
+      "answer": "useState"
+    },
+    {
+      "id": 6,
+      "question": "Hook nào tương đương với các lifecycle methods như componentDidMount, componentDidUpdate, và componentWillUnmount?",
+      "options": ["useMemo", "useCallback", "useEffect", "useRef"],
+      "answer": "useEffect"
+    },
+    {
+      "id": 7,
+      "question": "Làm thế nào để truyền dữ liệu từ component cha xuống component con?",
+      "options": ["Sử dụng state", "Sử dụng props", "Sử dụng Context", "Sử dụng Redux"],
+      "answer": "Sử dụng props"
+    },
+    {
+      "id": 8,
+      "question": "Trong React, 'props' có thể bị thay đổi bởi component nhận nó không?",
+      "options": ["Có, bất cứ lúc nào", "Không, props là read-only (chỉ đọc)", "Có, nếu dùng hook", "Chỉ thay đổi được chuỗi (string)"],
+      "answer": "Không, props là read-only (chỉ đọc)"
+    },
+    {
+      "id": 9,
+      "question": "Phương thức nào bắt buộc phải có trong một class component?",
+      "options": ["constructor()", "render()", "componentDidMount()", "getDerivedStateFromProps()"],
+      "answer": "render()"
+    },
+    {
+      "id": 10,
+      "question": "Để tham chiếu trực tiếp đến một phần tử DOM trong functional component, ta dùng hook nào?",
+      "options": ["useDOM", "useElement", "useRef", "useState"],
+      "answer": "useRef"
+    },
+    {
+      "id": 11,
+      "question": "Khái niệm 'Lifting State Up' trong React có nghĩa là gì?",
+      "options": ["Tăng hiệu năng của state", "Chuyển state lên component cha chung gần nhất", "Sử dụng Redux", "Gộp nhiều state lại thành một"],
+      "answer": "Chuyển state lên component cha chung gần nhất"
+    },
+    {
+      "id": 12,
+      "question": "Thẻ `<React.Fragment>` hoặc `<>` dùng để làm gì?",
+      "options": ["Tạo một thẻ div ẩn", "Nhóm nhiều phần tử lại mà không sinh ra một node dư thừa trên DOM", "Để phân chia component", "Để style cho các phần tử con"],
+      "answer": "Nhóm nhiều phần tử lại mà không sinh ra một node dư thừa trên DOM"
+    },
+    {
+      "id": 13,
+      "question": "Để tối ưu hoá hiệu năng, tránh component render lại khi props không đổi, ta dùng HOC nào?",
+      "options": ["React.memo", "React.PureComponent", "React.optimize", "React.lazy"],
+      "answer": "React.memo"
+    },
+    {
+      "id": 14,
+      "question": "Lệnh nào sau đây dùng để tạo một dự án React mới thông qua create-react-app?",
+      "options": ["npm create react-app my-app", "npx create-react-app my-app", "npm init react my-app", "npx build react my-app"],
+      "answer": "npx create-react-app my-app"
+    },
+    {
+      "id": 15,
+      "question": "Thuộc tính 'key' trong khi render một danh sách (list) có vai trò gì?",
+      "options": ["Để tạo id cho phần tử", "Để CSS dễ dàng lấy selector", "Giúp React xác định phần tử nào đã thay đổi, thêm mới hoặc bị xoá", "Để truyền dữ liệu giữa các phần tử"],
+      "answer": "Giúp React xác định phần tử nào đã thay đổi, thêm mới hoặc bị xoá"
+    },
+    {
+      "id": 16,
+      "question": "Hook useContext dùng để giải quyết vấn đề gì phổ biến trong React?",
+      "options": ["Quản lý side effects", "Prop drilling (truyền props qua nhiều tầng component)", "Quản lý form", "Tối ưu hóa re-render"],
+      "answer": "Prop drilling (truyền props qua nhiều tầng component)"
+    },
+    {
+      "id": 17,
+      "question": "Đâu là cách đúng để viết một comment bên trong đoạn mã JSX?",
+      "options": ["// comment", "<!-- comment -->", "{/* comment */}", "/* comment */"],
+      "answer": "{/* comment */}"
+    },
+    {
+      "id": 18,
+      "question": "Trong functional component, nếu không truyền dependency array (mảng phụ thuộc) vào useEffect, nó sẽ chạy khi nào?",
+      "options": ["Chỉ chạy một lần sau khi mount", "Chạy sau mỗi lần component re-render", "Không bao giờ chạy", "Chỉ chạy khi unmount"],
+      "answer": "Chạy sau mỗi lần component re-render"
+    },
+    {
+      "id": 19,
+      "question": "Redux thường được dùng chung với React để làm gì?",
+      "options": ["Quản lý routing", "Quản lý state toàn cục (global state)", "Tạo hiệu ứng animation", "Giao tiếp với API"],
+      "answer": "Quản lý state toàn cục (global state)"
+    },
+    {
+      "id": 20,
+      "question": "React Router là thư viện dùng để làm gì trong ứng dụng React?",
+      "options": ["Gửi HTTP request", "Quản lý luồng dữ liệu", "Quản lý điều hướng (routing) giữa các trang", "Biên dịch JSX thành JavaScript"],
+      "answer": "Quản lý điều hướng (routing) giữa các trang"
+    }
+  ]
+}

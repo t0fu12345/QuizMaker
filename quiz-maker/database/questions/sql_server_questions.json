@@ -1,0 +1,125 @@
+{
+  "subject": "SQL Server",
+  "questions": [
+    {
+      "id": 1,
+      "question": "SQL Server là hệ quản trị cơ sở dữ liệu của hãng nào?",
+      "options": ["Oracle", "Microsoft", "IBM", "Google"],
+      "answer": "Microsoft"
+    },
+    {
+      "id": 2,
+      "question": "Lệnh nào dùng để lấy dữ liệu từ một bảng trong cơ sở dữ liệu?",
+      "options": ["GET", "EXTRACT", "SELECT", "PULL"],
+      "answer": "SELECT"
+    },
+    {
+      "id": 3,
+      "question": "Ngôn ngữ truy vấn mở rộng được sử dụng trong SQL Server là gì?",
+      "options": ["PL/SQL", "T-SQL", "MySQL", "pgSQL"],
+      "answer": "T-SQL"
+    },
+    {
+      "id": 4,
+      "question": "Để cập nhật dữ liệu đã có trong bảng, ta dùng lệnh nào?",
+      "options": ["SAVE", "UPDATE", "MODIFY", "CHANGE"],
+      "answer": "UPDATE"
+    },
+    {
+      "id": 5,
+      "question": "Mệnh đề nào dùng để lọc các kết quả trả về của lệnh SELECT dựa trên điều kiện?",
+      "options": ["WHERE", "FILTER", "HAVING", "ORDER BY"],
+      "answer": "WHERE"
+    },
+    {
+      "id": 6,
+      "question": "Khóa chính (Primary Key) của một bảng có đặc điểm gì?",
+      "options": ["Cho phép giá trị NULL", "Có thể trùng lặp", "Định danh duy nhất mỗi dòng trong bảng và không được NULL", "Chỉ dùng cho kiểu số nguyên"],
+      "answer": "Định danh duy nhất mỗi dòng trong bảng và không được NULL"
+    },
+    {
+      "id": 7,
+      "question": "Lệnh nào dùng để xóa toàn bộ dữ liệu trong bảng mà không ghi log (nhanh hơn DELETE)?",
+      "options": ["DROP TABLE", "REMOVE TABLE", "TRUNCATE TABLE", "CLEAR TABLE"],
+      "answer": "TRUNCATE TABLE"
+    },
+    {
+      "id": 8,
+      "question": "Lệnh nào dùng để thêm một cột mới vào bảng đã tồn tại?",
+      "options": ["ALTER TABLE ... ADD", "MODIFY TABLE ... ADD", "UPDATE TABLE ... ADD", "INSERT INTO ... COLUMN"],
+      "answer": "ALTER TABLE ... ADD"
+    },
+    {
+      "id": 9,
+      "question": "Hàm tổng hợp nào dùng để đếm số lượng dòng trong một bảng?",
+      "options": ["SUM()", "COUNT()", "TOTAL()", "MAX()"],
+      "answer": "COUNT()"
+    },
+    {
+      "id": 10,
+      "question": "Để nhóm các kết quả theo một hoặc nhiều cột, ta sử dụng mệnh đề nào?",
+      "options": ["GROUP BY", "ORDER BY", "PARTITION BY", "CLUSTER BY"],
+      "answer": "GROUP BY"
+    },
+    {
+      "id": 11,
+      "question": "Mệnh đề nào đi kèm với GROUP BY để lọc kết quả nhóm (tương tự như WHERE lọc dòng)?",
+      "options": ["WHERE", "FILTER", "HAVING", "MATCH"],
+      "answer": "HAVING"
+    },
+    {
+      "id": 12,
+      "question": "Loại JOIN nào trả về tất cả các dòng khi có sự khớp nhau ở cả hai bảng?",
+      "options": ["LEFT JOIN", "RIGHT JOIN", "FULL OUTER JOIN", "INNER JOIN"],
+      "answer": "INNER JOIN"
+    },
+    {
+      "id": 13,
+      "question": "Để sắp xếp kết quả trả về theo thứ tự giảm dần, từ khóa nào được sử dụng sau tên cột?",
+      "options": ["ASC", "DESC", "DOWN", "DEC"],
+      "answer": "DESC"
+    },
+    {
+      "id": 14,
+      "question": "Lệnh nào dùng để tạo một cơ sở dữ liệu mới?",
+      "options": ["CREATE DATABASE", "NEW DATABASE", "MAKE DATABASE", "BUILD DATABASE"],
+      "answer": "CREATE DATABASE"
+    },
+    {
+      "id": 15,
+      "question": "Từ khóa nào được dùng để loại bỏ các dòng trùng lặp trong kết quả trả về?",
+      "options": ["UNIQUE", "DISTINCT", "DIFFERENT", "SINGLE"],
+      "answer": "DISTINCT"
+    },
+    {
+      "id": 16,
+      "question": "Trigger trong SQL Server là gì?",
+      "options": ["Một đoạn mã tự động thực thi khi có sự kiện Insert/Update/Delete xảy ra", "Một hàm toán học", "Một công cụ tạo giao diện", "Một phương pháp mã hóa dữ liệu"],
+      "answer": "Một đoạn mã tự động thực thi khi có sự kiện Insert/Update/Delete xảy ra"
+    },
+    {
+      "id": 17,
+      "question": "Stored Procedure có lợi ích gì so với truy vấn SQL thông thường?",
+      "options": ["Chạy chậm hơn", "Không thể nhận tham số", "Được biên dịch sẵn giúp tăng hiệu suất và bảo mật", "Chỉ dùng để chọn dữ liệu"],
+      "answer": "Được biên dịch sẵn giúp tăng hiệu suất và bảo mật"
+    },
+    {
+      "id": 18,
+      "question": "Lệnh nào dùng để khôi phục (undo) một transaction nếu xảy ra lỗi?",
+      "options": ["COMMIT", "ROLLBACK", "REVERT", "UNDO"],
+      "answer": "ROLLBACK"
+    },
+    {
+      "id": 19,
+      "question": "Hàm nào trả về ngày và giờ hiện tại trong SQL Server?",
+      "options": ["NOW()", "CURDATE()", "GETDATE()", "TODAY()"],
+      "answer": "GETDATE()"
+    },
+    {
+      "id": 20,
+      "question": "Kiểu dữ liệu nào dùng để lưu trữ văn bản có độ dài lớn, hỗ trợ Unicode trong SQL Server?",
+      "options": ["VARCHAR", "NVARCHAR", "CHAR", "TEXT"],
+      "answer": "NVARCHAR"
+    }
+  ]
+}

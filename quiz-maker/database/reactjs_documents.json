@@ -1,0 +1,97 @@
+{
+  "subject_name": "ReactJS",
+  "total_files": 9,
+  "exported_at": "2026-07-19T17:54:13Z",
+  "documents": [
+    {
+      "file_name": "slide1.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 1253878,
+      "title": "slide1",
+      "content": "",
+      "metadata": {
+        "pages": 14
+      }
+    },
+    {
+      "file_name": "slide2.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 1161845,
+      "title": "slide2",
+      "content": "",
+      "metadata": {
+        "pages": 12
+      }
+    },
+    {
+      "file_name": "slide3.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 891188,
+      "title": "slide3",
+      "content": "",
+      "metadata": {
+        "pages": 9
+      }
+    },
+    {
+      "file_name": "slide4.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 1638868,
+      "title": "slide4",
+      "content": "",
+      "metadata": {
+        "pages": 16
+      }
+    },
+    {
+      "file_name": "slide5.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 1524663,
+      "title": "slide5",
+      "content": "",
+      "metadata": {
+        "pages": 13
+      }
+    },
+    {
+      "file_name": "slide6.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 1432670,
+      "title": "slide6",
+      "content": "",
+      "metadata": {
+        "pages": 12
+      }
+    },
+    {
+      "file_name": "slide7.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 1164369,
+      "title": "slide7",
+      "content": "",
+      "metadata": {
+        "pages": 10
+      }
+    },
+    {
+      "file_name": "slide8.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 2783748,
+      "title": "slide8",
+      "content": "",
+      "metadata": {
+        "pages": 20
+      }
+    },
+    {
+      "file_name": "slide9.pdf",
+      "file_type": "pdf",
+      "file_size_bytes": 1761517,
+      "title": "slide9",
+      "content": "",
+      "metadata": {
+        "pages": 15
+      }
+    }
+  ]
+}

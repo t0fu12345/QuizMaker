@@ -1,0 +1,125 @@
+{
+  "subject": "AI Essentials",
+  "questions": [
+    {
+      "id": 1,
+      "question": "AI (Artificial Intelligence) là gì?",
+      "options": ["Máy tính có khả năng tự sửa lỗi phần cứng", "Trí tuệ nhân tạo, khả năng của máy móc mô phỏng nhận thức con người", "Một ngôn ngữ lập trình", "Một phần mềm diệt virus"],
+      "answer": "Trí tuệ nhân tạo, khả năng của máy móc mô phỏng nhận thức con người"
+    },
+    {
+      "id": 2,
+      "question": "Machine Learning (Học máy) là một tập con của lĩnh vực nào?",
+      "options": ["Blockchain", "AI (Trí tuệ nhân tạo)", "Cloud Computing", "Internet of Things"],
+      "answer": "AI (Trí tuệ nhân tạo)"
+    },
+    {
+      "id": 3,
+      "question": "Đâu là một ví dụ về AI yếu (Narrow AI)?",
+      "options": ["Hệ thống nhận diện khuôn mặt", "Một robot có ý thức như con người", "Trí tuệ nhân tạo có khả năng cảm nhận cảm xúc", "Skynet"],
+      "answer": "Hệ thống nhận diện khuôn mặt"
+    },
+    {
+      "id": 4,
+      "question": "Thuật ngữ NLP trong AI viết tắt của từ gì?",
+      "options": ["Natural Language Processing", "Neural Logic Program", "Non-Linear Processing", "New Learning Protocol"],
+      "answer": "Natural Language Processing"
+    },
+    {
+      "id": 5,
+      "question": "Trong Machine Learning, 'Training data' (Dữ liệu huấn luyện) được dùng để làm gì?",
+      "options": ["Xóa cơ sở dữ liệu", "Dạy cho mô hình AI cách nhận biết mẫu (patterns) và đưa ra dự đoán", "Kiểm thử phần mềm", "Tạo giao diện người dùng"],
+      "answer": "Dạy cho mô hình AI cách nhận biết mẫu (patterns) và đưa ra dự đoán"
+    },
+    {
+      "id": 6,
+      "question": "Đâu là một kỹ thuật thuộc Deep Learning?",
+      "options": ["Cây quyết định (Decision Tree)", "Mạng nơ-ron nhân tạo nhiều lớp (Neural Networks)", "Hồi quy tuyến tính (Linear Regression)", "Sắp xếp nổi bọt (Bubble Sort)"],
+      "answer": "Mạng nơ-ron nhân tạo nhiều lớp (Neural Networks)"
+    },
+    {
+      "id": 7,
+      "question": "Supervised Learning (Học có giám sát) khác biệt như thế nào so với Unsupervised Learning?",
+      "options": ["Dữ liệu huấn luyện đã được gán nhãn (labeled)", "Chỉ dùng cho hình ảnh", "Không cần dữ liệu", "Mô hình tự sinh ra dữ liệu"],
+      "answer": "Dữ liệu huấn luyện đã được gán nhãn (labeled)"
+    },
+    {
+      "id": 8,
+      "question": "Ứng dụng nào sau đây KHÔNG phải là ứng dụng phổ biến của AI?",
+      "options": ["Trợ lý ảo (Siri, Alexa)", "Xe tự lái", "Lưu trữ file tĩnh trên USB", "Gợi ý sản phẩm trên các trang thương mại điện tử"],
+      "answer": "Lưu trữ file tĩnh trên USB"
+    },
+    {
+      "id": 9,
+      "question": "Bias (Thiên kiến) trong AI xảy ra khi nào?",
+      "options": ["Khi AI quá thông minh", "Khi dữ liệu huấn luyện bị lệch, dẫn đến kết quả dự đoán không công bằng hoặc sai lệch", "Khi AI bị ngắt kết nối mạng", "Khi thuật toán chạy quá chậm"],
+      "answer": "Khi dữ liệu huấn luyện bị lệch, dẫn đến kết quả dự đoán không công bằng hoặc sai lệch"
+    },
+    {
+      "id": 10,
+      "question": "Turing Test được thiết kế nhằm mục đích gì?",
+      "options": ["Kiểm tra tốc độ tính toán của máy tính", "Kiểm tra xem một máy tính có thể thể hiện hành vi thông minh tương đương (hoặc không thể phân biệt được) với con người hay không", "Kiểm tra lỗi phần cứng", "Kiểm tra dung lượng bộ nhớ"],
+      "answer": "Kiểm tra xem một máy tính có thể thể hiện hành vi thông minh tương đương (hoặc không thể phân biệt được) với con người hay không"
+    },
+    {
+      "id": 11,
+      "question": "Generative AI (AI tạo sinh) là gì?",
+      "options": ["AI dùng để tạo ra nội dung mới như văn bản, hình ảnh, âm thanh từ dữ liệu đã học", "AI chỉ dùng để tính toán số liệu", "AI để xóa dữ liệu", "AI điều khiển phần cứng"],
+      "answer": "AI dùng để tạo ra nội dung mới như văn bản, hình ảnh, âm thanh từ dữ liệu đã học"
+    },
+    {
+      "id": 12,
+      "question": "LLM trong bối cảnh AI như ChatGPT là viết tắt của gì?",
+      "options": ["Large Language Model", "Low Level Machine", "Logic Learning Method", "Local Linear Model"],
+      "answer": "Large Language Model"
+    },
+    {
+      "id": 13,
+      "question": "Computer Vision (Thị giác máy tính) cho phép máy tính làm gì?",
+      "options": ["Phân tích và hiểu được thông tin từ hình ảnh hoặc video", "Giao tiếp bằng giọng nói", "Dịch ngôn ngữ", "Chơi cờ vua"],
+      "answer": "Phân tích và hiểu được thông tin từ hình ảnh hoặc video"
+    },
+    {
+      "id": 14,
+      "question": "Overfitting trong Machine Learning là hiện tượng gì?",
+      "options": ["Mô hình không học được gì", "Mô hình học quá tốt trên tập dữ liệu huấn luyện nhưng lại dự đoán kém trên dữ liệu mới", "Mô hình tính toán quá nhanh", "Dữ liệu huấn luyện quá ít"],
+      "answer": "Mô hình học quá tốt trên tập dữ liệu huấn luyện nhưng lại dự đoán kém trên dữ liệu mới"
+    },
+    {
+      "id": 15,
+      "question": "Đâu là một thuật toán thuộc loại học không giám sát (Unsupervised Learning)?",
+      "options": ["Linear Regression", "K-Means Clustering", "Random Forest", "Support Vector Machine"],
+      "answer": "K-Means Clustering"
+    },
+    {
+      "id": 16,
+      "question": "Chatbot hoạt động dựa trên kỹ thuật cốt lõi nào của AI?",
+      "options": ["NLP (Xử lý ngôn ngữ tự nhiên)", "Computer Vision (Thị giác máy tính)", "Robotics (Robot học)", "IoT (Internet vạn vật)"],
+      "answer": "NLP (Xử lý ngôn ngữ tự nhiên)"
+    },
+    {
+      "id": 17,
+      "question": "Trong AI, Neural Network (Mạng nơ-ron) được lấy cảm hứng từ đâu?",
+      "options": ["Mạng máy tính", "Mạng nhện", "Hệ thần kinh của não bộ sinh học", "Hệ thống điện"],
+      "answer": "Hệ thần kinh của não bộ sinh học"
+    },
+    {
+      "id": 18,
+      "question": "AI có thể được sử dụng trong lĩnh vực y tế để làm gì?",
+      "options": ["Thay thế hoàn toàn bác sĩ", "Phân tích ảnh y khoa (X-quang, MRI) để hỗ trợ chẩn đoán bệnh", "Quản lý dây chuyền sản xuất thuốc trừ sâu", "Lái xe cấp cứu"],
+      "answer": "Phân tích ảnh y khoa (X-quang, MRI) để hỗ trợ chẩn đoán bệnh"
+    },
+    {
+      "id": 19,
+      "question": "Một thách thức về mặt đạo đức của AI hiện nay là gì?",
+      "options": ["Tốn quá nhiều điện", "Khả năng mất kiểm soát, vi phạm quyền riêng tư và thiên kiến tự động", "Không ai biết cách lập trình AI", "Tốc độ mạng internet chậm"],
+      "answer": "Khả năng mất kiểm soát, vi phạm quyền riêng tư và thiên kiến tự động"
+    },
+    {
+      "id": 20,
+      "question": "Reinforcement Learning (Học tăng cường) hoạt động dựa trên cơ chế nào?",
+      "options": ["Phân loại dữ liệu có nhãn sẵn", "Thử - sai và nhận phần thưởng hoặc hình phạt để tối ưu hóa hành động", "Gom cụm các dữ liệu tương đồng", "Chuyển đổi hình ảnh thành văn bản"],
+      "answer": "Thử - sai và nhận phần thưởng hoặc hình phạt để tối ưu hóa hành động"
+    }
+  ]
+}

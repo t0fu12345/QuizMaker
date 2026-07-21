@@ -1,0 +1,125 @@
+{
+  "subject": "Github",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Git là gì?",
+      "options": ["Một ngôn ngữ lập trình", "Một hệ thống quản lý phiên bản phân tán (Distributed Version Control System)", "Một nền tảng mạng xã hội", "Một hệ điều hành"],
+      "answer": "Một hệ thống quản lý phiên bản phân tán (Distributed Version Control System)"
+    },
+    {
+      "id": 2,
+      "question": "GitHub là gì?",
+      "options": ["Một công ty phát triển phần mềm mã nguồn đóng", "Một dịch vụ lưu trữ dựa trên web dành cho các dự án phát triển phần mềm sử dụng Git", "Một trình duyệt web", "Một hệ quản trị cơ sở dữ liệu"],
+      "answer": "Một dịch vụ lưu trữ dựa trên web dành cho các dự án phát triển phần mềm sử dụng Git"
+    },
+    {
+      "id": 3,
+      "question": "Lệnh nào dùng để khởi tạo một repository (kho lưu trữ) Git mới tại một thư mục local?",
+      "options": ["git start", "git init", "git create", "git new"],
+      "answer": "git init"
+    },
+    {
+      "id": 4,
+      "question": "Lệnh nào dùng để sao chép một repository từ GitHub về máy tính local?",
+      "options": ["git copy", "git clone", "git download", "git fetch"],
+      "answer": "git clone"
+    },
+    {
+      "id": 5,
+      "question": "Trong Git, lệnh nào dùng để thêm các thay đổi của tệp vào Staging Area?",
+      "options": ["git push", "git commit", "git add", "git save"],
+      "answer": "git add"
+    },
+    {
+      "id": 6,
+      "question": "Lệnh nào dùng để lưu lại (commit) các thay đổi đã được thêm vào Staging Area vào lịch sử Git?",
+      "options": ["git commit", "git save", "git store", "git push"],
+      "answer": "git commit"
+    },
+    {
+      "id": 7,
+      "question": "Cờ (flag) nào thường đi kèm với lệnh 'git commit' để thêm một thông điệp (message)?",
+      "options": ["-t", "-m", "-msg", "-c"],
+      "answer": "-m"
+    },
+    {
+      "id": 8,
+      "question": "Lệnh nào dùng để xem trạng thái hiện tại của working directory và staging area?",
+      "options": ["git status", "git state", "git show", "git info"],
+      "answer": "git status"
+    },
+    {
+      "id": 9,
+      "question": "Lệnh nào dùng để đẩy (upload) các commit từ local repository lên remote repository (ví dụ trên GitHub)?",
+      "options": ["git upload", "git send", "git push", "git pull"],
+      "answer": "git push"
+    },
+    {
+      "id": 10,
+      "question": "Lệnh nào dùng để kéo (download) và tự động gộp (merge) các thay đổi từ remote repository về local?",
+      "options": ["git fetch", "git pull", "git download", "git get"],
+      "answer": "git pull"
+    },
+    {
+      "id": 11,
+      "question": "Để tạo một nhánh (branch) mới và ngay lập tức chuyển sang nhánh đó, ta dùng lệnh nào?",
+      "options": ["git branch new", "git checkout -b", "git switch -c", "Cả B và C đều đúng"],
+      "answer": "Cả B và C đều đúng"
+    },
+    {
+      "id": 12,
+      "question": "Merge Conflict (Xung đột khi gộp) trong Git xảy ra khi nào?",
+      "options": ["Khi bạn quên không git add", "Khi kết nối mạng bị rớt", "Khi có sự thay đổi trên cùng một dòng của cùng một file ở 2 nhánh khác nhau được gộp vào", "Khi Git hết bộ nhớ"],
+      "answer": "Khi có sự thay đổi trên cùng một dòng của cùng một file ở 2 nhánh khác nhau được gộp vào"
+    },
+    {
+      "id": 13,
+      "question": "Lệnh nào dùng để xem lịch sử các commit?",
+      "options": ["git history", "git log", "git show", "git time"],
+      "answer": "git log"
+    },
+    {
+      "id": 14,
+      "question": "Tệp (file) nào trong thư mục dự án dùng để khai báo các file/thư mục mà Git cần bỏ qua (không theo dõi)?",
+      "options": [".gitignore", ".gitconfig", ".gitexclude", ".ignore"],
+      "answer": ".gitignore"
+    },
+    {
+      "id": 15,
+      "question": "Trong GitHub, Pull Request (PR) là gì?",
+      "options": ["Một yêu cầu gửi email", "Một thông báo lỗi (bug report)", "Một tính năng để đề xuất gộp (merge) các thay đổi từ nhánh này sang nhánh khác, thường để những người khác review code", "Một lệnh thay thế cho git pull"],
+      "answer": "Một tính năng để đề xuất gộp (merge) các thay đổi từ nhánh này sang nhánh khác, thường để những người khác review code"
+    },
+    {
+      "id": 16,
+      "question": "Fork một repository trên GitHub có ý nghĩa gì?",
+      "options": ["Xóa repository đó", "Tạo một bản sao độc lập của repository đó vào tài khoản GitHub của riêng bạn", "Đổi tên repository", "Khóa repository không cho ai sửa"],
+      "answer": "Tạo một bản sao độc lập của repository đó vào tài khoản GitHub của riêng bạn"
+    },
+    {
+      "id": 17,
+      "question": "Lệnh nào dùng để xem sự khác biệt giữa các thay đổi chưa được add và commit cuối cùng?",
+      "options": ["git diff", "git compare", "git check", "git changes"],
+      "answer": "git diff"
+    },
+    {
+      "id": 18,
+      "question": "Nhánh mặc định trong một repository Git thường được đặt tên là gì?",
+      "options": ["main hoặc master", "default", "primary", "trunk"],
+      "answer": "main hoặc master"
+    },
+    {
+      "id": 19,
+      "question": "Git Rebase thường dùng để làm gì?",
+      "options": ["Xóa toàn bộ commit", "Tích hợp các thay đổi từ một nhánh này sang nhánh khác bằng cách 'chuyển nền' các commit, tạo ra một lịch sử tuyến tính", "Gửi tin nhắn cho người khác", "Tự động fix bug"],
+      "answer": "Tích hợp các thay đổi từ một nhánh này sang nhánh khác bằng cách 'chuyển nền' các commit, tạo ra một lịch sử tuyến tính"
+    },
+    {
+      "id": 20,
+      "question": "Làm thế nào để thay đổi thông điệp (message) của commit cuối cùng (nếu chưa push lên remote)?",
+      "options": ["git commit --amend", "git change message", "git edit commit", "git reset message"],
+      "answer": "git commit --amend"
+    }
+  ]
+}

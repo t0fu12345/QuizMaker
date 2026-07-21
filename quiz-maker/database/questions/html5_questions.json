@@ -1,0 +1,125 @@
+{
+  "subject": "HTML5",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Thẻ nào được dùng để xác định phần đầu của một tài liệu HTML5?",
+      "options": ["<head>", "<header>", "<top>", "<section>"],
+      "answer": "<head>"
+    },
+    {
+      "id": 2,
+      "question": "Trong HTML5, thẻ nào dùng để chèn một đoạn video?",
+      "options": ["<media>", "<video>", "<movie>", "<embed>"],
+      "answer": "<video>"
+    },
+    {
+      "id": 3,
+      "question": "Thuộc tính nào của thẻ <img> dùng để hiển thị văn bản thay thế khi hình ảnh không tải được?",
+      "options": ["title", "src", "alt", "href"],
+      "answer": "alt"
+    },
+    {
+      "id": 4,
+      "question": "Thẻ nào dùng để tạo một danh sách có thứ tự (được đánh số)?",
+      "options": ["<ul>", "<list>", "<ol>", "<dl>"],
+      "answer": "<ol>"
+    },
+    {
+      "id": 5,
+      "question": "Khai báo DOCTYPE đúng cho HTML5 là gì?",
+      "options": ["<!DOCTYPE html5>", "<!DOCTYPE html>", "</DOCTYPE html>", "<!DOCTYPE HTML PUBLIC>"],
+      "answer": "<!DOCTYPE html>"
+    },
+    {
+      "id": 6,
+      "question": "Thẻ nào trong HTML5 định nghĩa thanh điều hướng?",
+      "options": ["<navigation>", "<nav>", "<menu>", "<link>"],
+      "answer": "<nav>"
+    },
+    {
+      "id": 7,
+      "question": "Trong HTML5, thẻ <canvas> được sử dụng để làm gì?",
+      "options": ["Vẽ đồ họa bằng JavaScript", "Hiển thị hình ảnh vector tĩnh", "Hiển thị danh sách", "Định dạng văn bản"],
+      "answer": "Vẽ đồ họa bằng JavaScript"
+    },
+    {
+      "id": 8,
+      "question": "Input type nào là mới trong HTML5 dùng để chọn ngày?",
+      "options": ["date", "time", "datetime", "calendar"],
+      "answer": "date"
+    },
+    {
+      "id": 9,
+      "question": "Thẻ nào xác định nội dung độc lập, có thể tách rời như một bài viết trên blog?",
+      "options": ["<section>", "<div>", "<article>", "<aside>"],
+      "answer": "<article>"
+    },
+    {
+      "id": 10,
+      "question": "Phần tử nào dùng để định nghĩa phần cuối (footer) của một trang web hoặc một section?",
+      "options": ["<bottom>", "<footer>", "<end>", "<section-end>"],
+      "answer": "<footer>"
+    },
+    {
+      "id": 11,
+      "question": "Để mở link trong một tab mới, thuộc tính 'target' của thẻ <a> cần có giá trị gì?",
+      "options": ["_self", "_blank", "_new", "_top"],
+      "answer": "_blank"
+    },
+    {
+      "id": 12,
+      "question": "Thuộc tính nào của input bắt buộc người dùng phải điền vào trước khi submit form?",
+      "options": ["validate", "mandatory", "required", "placeholder"],
+      "answer": "required"
+    },
+    {
+      "id": 13,
+      "question": "Trong HTML5, API nào dùng để lưu trữ dữ liệu phía client thay cho cookie với dung lượng lớn hơn?",
+      "options": ["Local Storage", "Session Data", "ClientDB", "Web SQL"],
+      "answer": "Local Storage"
+    },
+    {
+      "id": 14,
+      "question": "Thẻ nào chứa các siêu dữ liệu (metadata) của trang web, như charset và viewport?",
+      "options": ["<head>", "<meta>", "<title>", "<script>"],
+      "answer": "<meta>"
+    },
+    {
+      "id": 15,
+      "question": "Phần tử nào trong HTML5 được dùng để định nghĩa nội dung bên lề (sidebar)?",
+      "options": ["<sidebar>", "<aside>", "<margin>", "<border>"],
+      "answer": "<aside>"
+    },
+    {
+      "id": 16,
+      "question": "Thẻ <iframe> dùng để làm gì?",
+      "options": ["Tạo khung cho hình ảnh", "Nhúng một tài liệu HTML khác vào trang hiện tại", "Tạo viền cho bảng", "Tạo giao diện cửa sổ"],
+      "answer": "Nhúng một tài liệu HTML khác vào trang hiện tại"
+    },
+    {
+      "id": 17,
+      "question": "Trong HTML5, thẻ dùng để đánh dấu văn bản được nhấn mạnh là thẻ nào?",
+      "options": ["<strong>", "<b>", "<em>", "<i>"],
+      "answer": "<em>"
+    },
+    {
+      "id": 18,
+      "question": "Thuộc tính nào dùng để tự động đưa con trỏ chuột vào một ô input khi trang vừa tải xong?",
+      "options": ["focus", "autofocus", "active", "hover"],
+      "answer": "autofocus"
+    },
+    {
+      "id": 19,
+      "question": "Thẻ <audio> dùng thuộc tính nào để hiển thị các nút điều khiển (play, pause, volume)?",
+      "options": ["buttons", "controls", "play", "show"],
+      "answer": "controls"
+    },
+    {
+      "id": 20,
+      "question": "Định dạng nào thường KHÔNG phải là định dạng hình ảnh được hỗ trợ chuẩn trong thẻ <img> trên web?",
+      "options": ["JPG", "PNG", "GIF", "TIFF"],
+      "answer": "TIFF"
+    }
+  ]
+}

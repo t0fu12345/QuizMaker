@@ -1,24 +1,30 @@
 import React from 'react';
 import { Filter } from 'lucide-react';
+import { motion } from 'motion/react';
 
 const FilterCard = ({ onOpenFilter }) => {
   return (
-    <div className="mt-8 rounded-[24px] bg-slate-800/40 backdrop-blur-md border border-white/10 p-16 flex flex-col items-center justify-center text-center shadow-xl">
-      <h2 className="text-white text-3xl font-bold mb-4 tracking-tight">
-        Trước hết, hãy cho chúng tôi biết thêm về bạn!
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+      className="mt-6 rounded-[24px] bg-zinc-900 border border-white/10 p-12 md:p-16 flex flex-col items-center justify-center text-center shadow-xl"
+    >
+      <h2 className="text-zinc-50 text-2xl md:text-3xl font-bold mb-4 tracking-tight max-w-lg leading-tight">
+        Bạn muốn tập trung vào nội dung nào hôm nay?
       </h2>
-      <p className="text-slate-300 text-lg mb-8">
-        Mở bộ lọc và chọn nội dung học bạn muốn!
+      <p className="text-zinc-400 text-lg mb-8 max-w-md">
+        Thiết lập bộ lọc để chọn môn học và độ dài bài tập phù hợp với bạn.
       </p>
       
       <button 
         onClick={onOpenFilter}
-        className="flex items-center gap-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-8 py-4 rounded-full font-medium text-lg transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        className="flex items-center gap-3 bg-zinc-50 text-zinc-950 hover:bg-zinc-200 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-200 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
       >
-        <Filter size={24} />
-        Mở bộ lọc
+        <Filter size={20} strokeWidth={2.5} />
+        Thiết lập bài tập
       </button>
-    </div>
+    </motion.div>
   );
 };
 

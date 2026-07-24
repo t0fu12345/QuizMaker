@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import HeroBanner from '../components/HeroBanner';
 import FilterCard from '../components/FilterCard';
 import FilterModal from '../components/FilterModal';
@@ -87,24 +88,36 @@ const PracticeDashboard = () => {
       )}
 
       {/* Screens */}
-      {quizData ? (
-        <QuizView quizData={quizData} onBack={handleBackToDashboard} />
-      ) : (
-        <>
-          <HeroBanner />
-          <FilterCard onOpenFilter={() => setIsFilterOpen(true)} />
-        </>
-      )}
+      <AnimatePresence mode="wait">
+        {quizData ? (
+          <QuizView key="quiz" quizData={quizData} onBack={handleBackToDashboard} />
+        ) : (
+          <motion.div 
+            key="dashboard"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+          >
+            <HeroBanner />
+            <FilterCard onOpenFilter={() => setIsFilterOpen(true)} />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Modals & Overlays */}
-      {isFilterOpen && (
-        <FilterModal 
-          onClose={() => setIsFilterOpen(false)} 
-          onStart={handleStartQuiz} 
-        />
-      )}
+      <AnimatePresence>
+        {isFilterOpen && (
+          <FilterModal 
+            onClose={() => setIsFilterOpen(false)} 
+            onStart={handleStartQuiz} 
+          />
+        )}
+      </AnimatePresence>
 
-      {isLoading && <LoadingScreen />}
+      <AnimatePresence>
+        {isLoading && <LoadingScreen />}
+      </AnimatePresence>
       
     </div>
   );

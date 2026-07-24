@@ -1,34 +1,58 @@
 import React from 'react';
+import { motion } from 'motion/react';
 
 const HeroBanner = () => {
   return (
-    <div className="relative overflow-hidden rounded-[24px] bg-gradient-to-r from-[#00a8ff]/90 via-[#00d2ff]/80 to-[#f9ca24]/90 p-10 flex items-center justify-between shadow-2xl shadow-[#00a8ff]/20">
-      <div className="relative z-10">
-        <h1 className="text-white text-4xl font-bold mb-3 tracking-tight drop-shadow-md">
-          Xin chào, User!
-        </h1>
-        <p className="text-white/90 text-lg font-medium drop-shadow">
-          Lướt xuống để bắt đầu luyện tập!
-        </p>
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      className="relative overflow-hidden rounded-[24px] bg-zinc-900 border border-white/10 p-10 flex items-center justify-between shadow-xl"
+    >
+      <div className="relative z-10 max-w-xl">
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-sm font-medium mb-6 border border-amber-500/20"
+        >
+          <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+          Ready to learn
+        </motion.div>
+        
+        <motion.h1 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="text-zinc-50 text-4xl md:text-5xl font-bold mb-4 tracking-tight leading-tight"
+        >
+          Nâng cao điểm số<br />của bạn hôm nay.
+        </motion.h1>
+        
+        <motion.p 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="text-zinc-400 text-lg font-medium max-w-md leading-relaxed"
+        >
+          Chọn một môn học và bắt đầu luyện tập để củng cố kiến thức ngay bây giờ.
+        </motion.p>
       </div>
       
-      {/* Cat Mascot Placeholder */}
-      <div className="relative z-10 w-48 h-48 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 shadow-[0_0_40px_rgba(255,255,255,0.3)]">
-        <div className="w-32 h-32 bg-amber-500 rounded-full relative flex items-center justify-center">
-           {/* Eyes */}
-           <div className="absolute top-12 left-8 w-2 h-2 bg-slate-900 rounded-full"></div>
-           <div className="absolute top-12 right-8 w-2 h-2 bg-slate-900 rounded-full"></div>
-           {/* Mouth */}
-           <div className="absolute top-16 left-1/2 -translate-x-1/2 w-4 h-2 border-b-2 border-slate-900 rounded-full"></div>
-           {/* Headband */}
-           <div className="absolute top-6 left-0 right-0 h-4 bg-green-500"></div>
-           <div className="absolute top-4 right-[-10px] w-6 h-8 bg-green-500 rounded-full transform rotate-45"></div>
+      {/* Decorative clean abstract shape instead of div-cat */}
+      <div className="hidden md:flex relative z-10 w-48 h-48 items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-transparent rounded-full blur-2xl"></div>
+        <div className="w-32 h-32 rounded-2xl bg-zinc-800 border border-white/10 rotate-12 shadow-2xl flex items-center justify-center">
+          <div className="w-16 h-16 rounded-full border-4 border-amber-500/50"></div>
+        </div>
+        <div className="absolute w-24 h-24 rounded-full bg-zinc-800 border border-white/10 -bottom-4 -left-4 shadow-xl -z-10 flex items-center justify-center">
+           <div className="w-8 h-8 rounded-sm bg-zinc-700/50 rotate-45"></div>
         </div>
       </div>
       
-      {/* Decorative gradient blur */}
-      <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none"></div>
-    </div>
+      {/* Subtle texture background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/[0.03] via-transparent to-transparent pointer-events-none"></div>
+    </motion.div>
   );
 };
 

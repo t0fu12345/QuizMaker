@@ -8,7 +8,7 @@ const DashboardLayout = () => {
   const scrollContainerRef = useRef(null);
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-50 font-sans flex overflow-hidden">
+    <div className="min-h-screen bg-slate-50 text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 font-sans flex overflow-hidden transition-colors duration-300">
       <Sidebar />
       <div className="flex-1 ml-[260px] flex flex-col h-screen overflow-hidden relative">
         <Header />

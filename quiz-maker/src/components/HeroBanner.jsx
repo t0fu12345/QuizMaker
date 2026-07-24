@@ -7,16 +7,16 @@ const HeroBanner = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="relative overflow-hidden rounded-[24px] bg-zinc-900 border border-white/10 p-10 flex items-center justify-between shadow-xl"
+      className="relative overflow-hidden rounded-[24px] bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 p-10 flex items-center justify-between shadow-sm dark:shadow-xl transition-colors"
     >
       <div className="relative z-10 max-w-xl">
         <motion.div 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-sm font-medium mb-6 border border-amber-500/20"
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 dark:bg-amber-500/10 text-blue-600 dark:text-amber-400 text-sm font-medium mb-6 border border-blue-500/20 dark:border-amber-500/20 transition-colors"
         >
-          <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+          <span className="w-2 h-2 rounded-full bg-blue-500 dark:bg-amber-500 animate-pulse transition-colors"></span>
           Ready to learn
         </motion.div>
         
@@ -24,7 +24,7 @@ const HeroBanner = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-zinc-50 text-4xl md:text-5xl font-bold mb-4 tracking-tight leading-tight"
+          className="text-slate-900 dark:text-zinc-50 text-4xl md:text-5xl font-bold mb-4 tracking-tight leading-tight transition-colors"
         >
           Nâng cao điểm số<br />của bạn hôm nay.
         </motion.h1>
@@ -33,7 +33,7 @@ const HeroBanner = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="text-zinc-400 text-lg font-medium max-w-md leading-relaxed"
+          className="text-slate-600 dark:text-zinc-400 text-lg font-medium max-w-md leading-relaxed transition-colors"
         >
           Chọn một môn học và bắt đầu luyện tập để củng cố kiến thức ngay bây giờ.
         </motion.p>
@@ -41,17 +41,17 @@ const HeroBanner = () => {
       
       {/* Decorative clean abstract shape instead of div-cat */}
       <div className="hidden md:flex relative z-10 w-48 h-48 items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-transparent rounded-full blur-2xl"></div>
-        <div className="w-32 h-32 rounded-2xl bg-zinc-800 border border-white/10 rotate-12 shadow-2xl flex items-center justify-center">
-          <div className="w-16 h-16 rounded-full border-4 border-amber-500/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 dark:from-amber-500/20 to-transparent rounded-full blur-2xl transition-colors"></div>
+        <div className="w-32 h-32 rounded-2xl bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-white/10 rotate-12 shadow-lg dark:shadow-2xl flex items-center justify-center transition-colors">
+          <div className="w-16 h-16 rounded-full border-4 border-blue-500/50 dark:border-amber-500/50 transition-colors"></div>
         </div>
-        <div className="absolute w-24 h-24 rounded-full bg-zinc-800 border border-white/10 -bottom-4 -left-4 shadow-xl -z-10 flex items-center justify-center">
-           <div className="w-8 h-8 rounded-sm bg-zinc-700/50 rotate-45"></div>
+        <div className="absolute w-24 h-24 rounded-full bg-slate-50 dark:bg-zinc-800 border border-slate-200 dark:border-white/10 -bottom-4 -left-4 shadow-md dark:shadow-xl -z-10 flex items-center justify-center transition-colors">
+           <div className="w-8 h-8 rounded-sm bg-slate-200/50 dark:bg-zinc-700/50 rotate-45 transition-colors"></div>
         </div>
       </div>
       
       {/* Subtle texture background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/[0.03] via-transparent to-transparent pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-slate-900/[0.03] dark:from-white/[0.03] via-transparent to-transparent pointer-events-none transition-colors"></div>
     </motion.div>
   );
 };

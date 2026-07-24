@@ -32,17 +32,22 @@ const Sidebar = () => {
             <NavLink
               key={item.name}
               to={item.path}
+              end={item.path === '/'}
               className={({ isActive }) => `
                 flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500
-                ${isActive || item.name === 'Luyện tập' ? 'bg-zinc-800 text-zinc-50' : 'text-zinc-400 hover:text-zinc-50 hover:bg-zinc-800/50'}
+                ${isActive ? 'bg-zinc-800 text-zinc-50' : 'text-zinc-400 hover:text-zinc-50 hover:bg-zinc-800/50'}
               `}
             >
-              <item.icon size={20} className={item.name === 'Luyện tập' ? 'text-amber-500' : 'text-zinc-500'} />
-              <span className="font-medium text-[15px]">{item.name}</span>
-              {item.badge && (
-                <span className="ml-auto bg-zinc-800 border border-zinc-700 text-zinc-300 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
-                  {item.badge}
-                </span>
+              {({ isActive }) => (
+                <>
+                  <item.icon size={20} className={isActive ? 'text-amber-500' : 'text-zinc-500'} />
+                  <span className="font-medium text-[15px]">{item.name}</span>
+                  {item.badge && (
+                    <span className="ml-auto bg-zinc-800 border border-zinc-700 text-zinc-300 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                      {item.badge}
+                    </span>
+                  )}
+                </>
               )}
             </NavLink>
           ))}

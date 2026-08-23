@@ -1,9 +1,9 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { m } from 'motion/react';
 
 const LoadingScreen = () => {
   return (
-    <motion.div 
+    <m.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -40,7 +40,7 @@ const LoadingScreen = () => {
           ))}
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 

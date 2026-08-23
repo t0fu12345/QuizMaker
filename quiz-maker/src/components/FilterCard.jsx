@@ -1,10 +1,10 @@
 import React from 'react';
 import { Filter } from 'lucide-react';
-import { motion } from 'motion/react';
+import { m } from 'motion/react';
 
 const FilterCard = ({ onOpenFilter }) => {
   return (
-    <motion.div 
+    <m.div 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -19,12 +19,12 @@ const FilterCard = ({ onOpenFilter }) => {
       
       <button 
         onClick={onOpenFilter}
-        className="flex items-center gap-3 bg-blue-600 dark:bg-zinc-50 text-white dark:text-zinc-950 hover:bg-blue-700 dark:hover:bg-zinc-200 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-200 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-900"
+        className="flex items-center gap-3 bg-blue-600 dark:bg-zinc-50 text-white dark:text-zinc-950 hover:bg-blue-700 dark:hover:bg-zinc-200 px-8 py-4 rounded-full font-semibold text-lg transition duration-200 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-900"
       >
         <Filter size={20} strokeWidth={2.5} />
         Thiết lập bài tập
       </button>
-    </motion.div>
+    </m.div>
   );
 };
 

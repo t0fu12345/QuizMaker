@@ -1,6 +1,18 @@
 import React, { useState, useRef } from 'react';
 import { ArrowLeft, CheckCircle2, XCircle, Check } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { m, AnimatePresence } from 'motion/react';
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
+};
 
 const QuizView = ({ quizData, onBack }) => {
   const { subject, questions } = quizData;
@@ -32,21 +44,8 @@ const QuizView = ({ quizData, onBack }) => {
   const answeredCount = Object.keys(answers).length;
   const progressPercent = questions.length > 0 ? (answeredCount / questions.length) * 100 : 0;
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
-  };
-
   return (
-    <motion.div 
+    <m.div 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
@@ -55,7 +54,7 @@ const QuizView = ({ quizData, onBack }) => {
     >
       <div ref={topRef} className="max-w-3xl mx-auto px-6 py-10 md:py-16 pb-32">
         {/* Header */}
-        <motion.div 
+        <m.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           className="flex items-center justify-between mb-8"
@@ -70,15 +69,16 @@ const QuizView = ({ quizData, onBack }) => {
           <div className="bg-slate-200 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 px-4 py-1.5 rounded-full text-sm font-semibold border border-slate-300 dark:border-white/10 uppercase tracking-wider transition-colors">
             {subject}
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Progress Bar */}
         <AnimatePresence>
           {!isSubmitted && questions.length > 0 && (
-            <motion.div 
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
+            <m.div 
+              layout
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               className="mb-10"
             >
               <div className="flex justify-between text-sm text-slate-500 dark:text-zinc-400 mb-3 font-medium transition-colors">
@@ -86,21 +86,22 @@ const QuizView = ({ quizData, onBack }) => {
                 <span>{answeredCount} / {questions.length}</span>
               </div>
               <div className="h-2 w-full bg-slate-200 dark:bg-zinc-800 rounded-full overflow-hidden transition-colors">
-                <motion.div 
+                <m.div 
                   className="h-full bg-blue-500 dark:bg-amber-500 rounded-full transition-colors"
-                  initial={{ width: 0 }}
-                  animate={{ width: `${progressPercent}%` }}
+                  style={{ transformOrigin: "left" }}
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: progressPercent / 100 }}
                   transition={{ type: "spring", stiffness: 100, damping: 20 }}
                 />
               </div>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
 
         {/* Result Card */}
         <AnimatePresence>
           {isSubmitted && (
-            <motion.div 
+            <m.div 
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
@@ -113,12 +114,12 @@ const QuizView = ({ quizData, onBack }) => {
               <p className="text-slate-600 dark:text-zinc-400 text-lg transition-colors">
                 Bạn đã trả lời đúng <span className="text-slate-900 dark:text-zinc-50 font-bold text-2xl transition-colors">{calculateScore()}</span> / {questions.length} câu hỏi.
               </p>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
 
         {/* Questions List */}
-        <motion.div 
+        <m.div 
           variants={containerVariants}
           initial="hidden"
           animate="show"
@@ -129,7 +130,7 @@ const QuizView = ({ quizData, onBack }) => {
             const isCorrect = selectedAnswer === q.answer;
             
             return (
-              <motion.div 
+              <m.div 
                 key={q.id} 
                 variants={itemVariants}
                 className="bg-white dark:bg-zinc-900/50 border border-slate-200 dark:border-white/5 p-6 md:p-8 rounded-[24px] shadow-sm dark:shadow-none transition-colors"
@@ -145,7 +146,7 @@ const QuizView = ({ quizData, onBack }) => {
                     const isTrueAnswer = isSubmitted && opt === q.answer;
                     const isWrongAnswer = isSubmitted && isSelected && !isCorrect;
 
-                    let optionClass = "w-full text-left flex items-start gap-4 p-4 rounded-xl border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-950 ";
+                    let optionClass = "w-full text-left flex items-start gap-4 p-4 rounded-xl border transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-950 ";
                     
                     if (isSubmitted) {
                       if (isTrueAnswer) {
@@ -165,7 +166,7 @@ const QuizView = ({ quizData, onBack }) => {
 
                     return (
                       <button 
-                        key={i} 
+                        key={opt} 
                         type="button"
                         disabled={isSubmitted}
                         onClick={() => handleSelectOption(q.id, opt)}
@@ -200,14 +201,14 @@ const QuizView = ({ quizData, onBack }) => {
                     );
                   })}
                 </div>
-              </motion.div>
+              </m.div>
             );
           })}
-        </motion.div>
+        </m.div>
 
         {/* Submit Button */}
         {!isSubmitted && questions.length > 0 && (
-          <motion.div 
+          <m.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
@@ -216,17 +217,17 @@ const QuizView = ({ quizData, onBack }) => {
             <button 
               onClick={handleSubmit}
               disabled={answeredCount < questions.length}
-              className="bg-blue-600 dark:bg-amber-500 hover:bg-blue-700 dark:hover:bg-amber-400 text-white dark:text-zinc-950 px-8 py-4 rounded-xl font-bold text-lg transition-all active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-blue-600 dark:disabled:hover:bg-amber-500 disabled:active:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 dark:focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-950"
+              className="bg-blue-600 dark:bg-amber-500 hover:bg-blue-700 dark:hover:bg-amber-400 text-white dark:text-zinc-950 px-8 py-4 rounded-xl font-bold text-lg transition active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-blue-600 dark:disabled:hover:bg-amber-500 disabled:active:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 dark:focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-950"
             >
               {answeredCount < questions.length 
                 ? 'Hoàn thành tất cả để nộp bài' 
                 : 'Nộp bài ngay'
               }
             </button>
-          </motion.div>
+          </m.div>
         )}
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 

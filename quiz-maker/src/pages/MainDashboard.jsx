@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { m } from 'motion/react';
 import { Trophy, TrendingUp, Sparkles, ArrowRight, Play } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ const MainDashboard = () => {
     <div className="w-full">
       {/* Hero Section */}
       <section className="pt-24 pb-32 max-w-5xl mx-auto">
-        <motion.div 
+        <m.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -29,14 +29,14 @@ const MainDashboard = () => {
             Hôm nay là một ngày tuyệt vời để phá vỡ những giới hạn mới. 
             Bạn đã sẵn sàng tiếp tục hành trình của mình chưa?
           </p>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* Z-Axis Cascade Cards Area */}
       <section className="max-w-4xl mx-auto relative">
         
         {/* Card 1: Progress */}
-        <motion.div 
+        <m.div 
           className="sticky top-24 z-10 w-[90%] md:w-[92%] mx-auto"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -70,10 +70,10 @@ const MainDashboard = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Card 2: Leaderboard Snippet */}
-        <motion.div 
+        <m.div 
           className="sticky top-40 z-20 w-[95%] md:w-[96%] mx-auto mt-[30vh]"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -96,8 +96,8 @@ const MainDashboard = () => {
                   { name: "Alex Chen", score: 2450, rank: 1 },
                   { name: "Sarah Connor", score: 2100, rank: 2 },
                   { name: "You", score: 1850, rank: 3, isYou: true },
-                ].map((user, i) => (
-                  <div key={i} className={`flex items-center justify-between p-4 rounded-xl border transition-colors ${user.isYou ? 'bg-blue-500/10 dark:bg-amber-500/10 border-blue-500/30 dark:border-amber-500/30' : 'bg-slate-50 dark:bg-zinc-950/50 border-slate-100 dark:border-white/5'}`}>
+                ].map((user) => (
+                  <div key={user.name} className={`flex items-center justify-between p-4 rounded-xl border transition-colors ${user.isYou ? 'bg-blue-500/10 dark:bg-amber-500/10 border-blue-500/30 dark:border-amber-500/30' : 'bg-slate-50 dark:bg-zinc-950/50 border-slate-100 dark:border-white/5'}`}>
                     <div className="flex items-center gap-4">
                       <span className={`font-bold w-6 text-center transition-colors ${user.rank === 1 ? 'text-blue-500 dark:text-amber-500' : 'text-slate-400 dark:text-zinc-500'}`}>#{user.rank}</span>
                       <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-zinc-800 border border-slate-300 dark:border-white/10 transition-colors" />
@@ -109,10 +109,10 @@ const MainDashboard = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Card 3: Action */}
-        <motion.div 
+        <m.div 
           className="sticky top-56 z-30 w-full mx-auto mt-[30vh]"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -132,7 +132,7 @@ const MainDashboard = () => {
               {/* Button-in-Button Architecture */}
               <button 
                 onClick={() => navigate('/practice')}
-                className="group relative inline-flex items-center gap-6 rounded-full bg-slate-900 dark:bg-zinc-50 pl-8 pr-2 py-2 text-white dark:text-zinc-950 font-bold text-lg transition-all hover:bg-slate-800 dark:hover:bg-zinc-200 active:scale-[0.98]"
+                className="group relative inline-flex items-center gap-6 rounded-full bg-slate-900 dark:bg-zinc-50 pl-8 pr-2 py-2 text-white dark:text-zinc-950 font-bold text-lg transition hover:bg-slate-800 dark:hover:bg-zinc-200 active:scale-[0.98]"
               >
                 <span>Vào thi ngay</span>
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-700 dark:bg-zinc-950 text-white dark:text-zinc-50 transition-transform group-hover:translate-x-1 group-hover:-translate-y-[1px] group-hover:scale-105">
@@ -141,7 +141,7 @@ const MainDashboard = () => {
               </button>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Dynamic spacer */}
         <div style={{ height: 'max(0px, calc(100vh - 684px))' }} className="w-full pointer-events-none" />

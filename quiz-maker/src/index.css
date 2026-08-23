@@ -7,3 +7,12 @@
     @apply antialiased bg-slate-50 text-slate-900 dark:bg-zinc-950 dark:text-zinc-50 m-0 font-sans selection:bg-blue-500/30 transition-colors duration-300;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

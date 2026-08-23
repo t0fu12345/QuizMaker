@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Play } from 'lucide-react';
-import { motion } from 'motion/react';
+import { m } from 'motion/react';
 
 const SUBJECTS = [
   { id: 'c', name: 'C' },
@@ -34,7 +34,7 @@ const FilterModal = ({ onClose, onStart }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
-      <motion.div 
+      <m.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -43,7 +43,7 @@ const FilterModal = ({ onClose, onStart }) => {
       />
       
       {/* Modal Content */}
-      <motion.div 
+      <m.div 
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -77,7 +77,7 @@ const FilterModal = ({ onClose, onStart }) => {
                 id="subject-select"
                 value={selectedSubject}
                 onChange={(e) => setSelectedSubject(e.target.value)}
-                className="w-full bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-zinc-50 text-base rounded-xl px-4 py-3 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-amber-500 focus:border-blue-500 dark:focus:border-amber-500 transition-all cursor-pointer"
+                className="w-full bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-zinc-50 text-base rounded-xl px-4 py-3 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-amber-500 focus:border-blue-500 dark:focus:border-amber-500 transition cursor-pointer"
               >
                 {SUBJECTS.map((sub) => (
                   <option key={sub.id} value={sub.id}>
@@ -95,9 +95,9 @@ const FilterModal = ({ onClose, onStart }) => {
 
           {/* Số lượng */}
           <div className="space-y-2" role="group" aria-labelledby="question-count-label">
-            <label id="question-count-label" className="block text-sm font-medium text-slate-700 dark:text-zinc-300 transition-colors">
+            <div id="question-count-label" className="block text-sm font-medium text-slate-700 dark:text-zinc-300 transition-colors">
               Số lượng câu hỏi
-            </label>
+            </div>
             <div className="grid grid-cols-4 gap-3">
               {QUESTION_COUNTS.map((count) => (
                 <button
@@ -105,7 +105,7 @@ const FilterModal = ({ onClose, onStart }) => {
                   type="button"
                   onClick={() => setQuestionCount(count)}
                   aria-pressed={questionCount === count}
-                  className={`py-2 rounded-xl text-sm font-medium transition-all duration-200 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-amber-500 ${
+                  className={`py-2 rounded-xl text-sm font-medium transition duration-200 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-amber-500 ${
                     questionCount === count
                       ? 'bg-blue-600 dark:bg-zinc-50 text-white dark:text-zinc-950 shadow-sm border border-blue-600 dark:border-zinc-50'
                       : 'bg-slate-50 dark:bg-zinc-950 text-slate-600 dark:text-zinc-400 border border-slate-300 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-zinc-800 hover:text-slate-900 dark:hover:text-zinc-200'
@@ -121,7 +121,7 @@ const FilterModal = ({ onClose, onStart }) => {
           <div className="pt-2">
             <button 
               type="submit"
-              className="w-full flex items-center justify-center gap-2 bg-blue-600 dark:bg-amber-500 hover:bg-blue-700 dark:hover:bg-amber-400 text-white dark:text-zinc-950 px-6 py-3.5 rounded-xl font-bold text-base transition-all duration-200 active:scale-[0.98] shadow-md dark:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 dark:focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-900"
+              className="w-full flex items-center justify-center gap-2 bg-blue-600 dark:bg-amber-500 hover:bg-blue-700 dark:hover:bg-amber-400 text-white dark:text-zinc-950 px-6 py-3.5 rounded-xl font-bold text-base transition duration-200 active:scale-[0.98] shadow-md dark:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 dark:focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-900"
             >
               <Play size={18} strokeWidth={2.5} />
               Bắt đầu làm bài
@@ -129,7 +129,7 @@ const FilterModal = ({ onClose, onStart }) => {
           </div>
         </form>
 
-      </motion.div>
+      </m.div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { m, AnimatePresence } from 'motion/react';
 import HeroBanner from '../components/HeroBanner';
 import FilterCard from '../components/FilterCard';
 import FilterModal from '../components/FilterModal';
@@ -79,7 +79,7 @@ const PracticeDashboard = () => {
       
       {/* Error Toast */}
       {errorMsg && (
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 animate-in fade-in slide-in-from-top-4 duration-300">
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-50 animate-in fade-in slide-in-from-top-4 transition-opacity duration-300">
           <div className="bg-red-500/10 border border-red-500/20 text-red-400 px-6 py-3 rounded-full shadow-lg backdrop-blur-md flex items-center gap-2">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
             <span className="font-medium">{errorMsg}</span>
@@ -92,7 +92,7 @@ const PracticeDashboard = () => {
         {quizData ? (
           <QuizView key="quiz" quizData={quizData} onBack={handleBackToDashboard} />
         ) : (
-          <motion.div 
+          <m.div 
             key="dashboard"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -101,7 +101,7 @@ const PracticeDashboard = () => {
           >
             <HeroBanner />
             <FilterCard onOpenFilter={() => setIsFilterOpen(true)} />
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
 

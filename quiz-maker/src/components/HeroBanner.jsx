@@ -1,16 +1,16 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { m } from 'motion/react';
 
 const HeroBanner = () => {
   return (
-    <motion.div 
+    <m.div 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className="relative overflow-hidden rounded-[24px] bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 p-10 flex items-center justify-between shadow-sm dark:shadow-xl transition-colors"
     >
       <div className="relative z-10 max-w-xl">
-        <motion.div 
+        <m.div 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
@@ -18,25 +18,25 @@ const HeroBanner = () => {
         >
           <span className="w-2 h-2 rounded-full bg-blue-500 dark:bg-amber-500 animate-pulse transition-colors"></span>
           Ready to learn
-        </motion.div>
+        </m.div>
         
-        <motion.h1 
+        <m.h1 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-slate-900 dark:text-zinc-50 text-4xl md:text-5xl font-bold mb-4 tracking-tight leading-tight transition-colors"
         >
           Nâng cao điểm số<br />của bạn hôm nay.
-        </motion.h1>
+        </m.h1>
         
-        <motion.p 
+        <m.p 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="text-slate-600 dark:text-zinc-400 text-lg font-medium max-w-md leading-relaxed transition-colors"
         >
           Chọn một môn học và bắt đầu luyện tập để củng cố kiến thức ngay bây giờ.
-        </motion.p>
+        </m.p>
       </div>
       
       {/* Decorative clean abstract shape instead of div-cat */}
@@ -52,7 +52,7 @@ const HeroBanner = () => {
       
       {/* Subtle texture background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-slate-900/[0.03] dark:from-white/[0.03] via-transparent to-transparent pointer-events-none transition-colors"></div>
-    </motion.div>
+    </m.div>
   );
 };
 

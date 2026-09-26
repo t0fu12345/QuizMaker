@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ArrowLeft, CheckCircle2, XCircle, Check, Loader2, ChevronRight, ChevronLeft } from 'lucide-react';
 import { m, AnimatePresence } from 'motion/react';
+import { recordQuizForCurrentUser } from '../utils/auth';
 
 const QuizView = ({ quizData, onBack }) => {
   const { subject, questions } = quizData;
@@ -100,6 +101,14 @@ const QuizView = ({ quizData, onBack }) => {
       }
       setScoreResult(finalScore);
 
+      const calculatedCorrect = calculateScore();
+      recordQuizForCurrentUser({
+        subject: subject || 'Luyện đề',
+        score: typeof finalScore === 'number' ? finalScore : calculatedCorrect,
+        totalQuestions: questions.length,
+        correctCount: calculatedCorrect
+      });
+
       const adviceRes = await fetch(`http://localhost:3001/api/advice?userId=${userId}`);
       if (adviceRes.ok) {
         const adviceResult = await adviceRes.json();
@@ -112,8 +121,16 @@ const QuizView = ({ quizData, onBack }) => {
       console.error("API call failed, using mock data.", err);
       // Mock data when server is not running (2s delay)
       await new Promise(r => setTimeout(r, 2000));
-      setScoreResult(calculateScore());
+      const fallbackScore = calculateScore();
+      setScoreResult(fallbackScore);
       setAiAdvice("AI thấy rằng bạn cần ôn tập thêm về các khái niệm cơ bản. Hãy xem lại bài giảng để củng cố kiến thức nhé!");
+      
+      recordQuizForCurrentUser({
+        subject: subject || 'Luyện đề',
+        score: fallbackScore,
+        totalQuestions: questions.length,
+        correctCount: fallbackScore
+      });
     } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -127,7 +144,7 @@ const QuizView = ({ quizData, onBack }) => {
   if (isSubmitting) {
     return (
       <div className="fixed inset-0 z-[100] bg-slate-900/50 backdrop-blur-sm flex items-center justify-center">
-        <div className="bg-white dark:bg-zinc-900 p-8 rounded-[24px] shadow-2xl flex flex-col items-center max-w-sm w-full mx-4 border border-slate-200 dark:border-white/10">
+        <div className="bg-white dark:bg-zinc-900 p-8 rounded-xl shadow-2xl flex flex-col items-center max-w-sm w-full mx-4 border border-slate-200 dark:border-white/10">
           <Loader2 className="w-12 h-12 text-blue-500 dark:text-amber-500 animate-spin mb-6" />
           <h3 className="text-xl font-bold text-slate-900 dark:text-zinc-50 mb-3 tracking-tight">AI đang phân tích...</h3>
           <p className="text-slate-500 dark:text-zinc-400 text-center text-sm leading-relaxed">
@@ -160,7 +177,7 @@ const QuizView = ({ quizData, onBack }) => {
             <ArrowLeft size={20} />
             <span className="font-medium">Quay lại trang chủ</span>
           </button>
-          <div className="bg-slate-200 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 px-4 py-1.5 rounded-full text-sm font-semibold border border-slate-300 dark:border-white/10 uppercase tracking-wider transition-colors">
+          <div className="bg-slate-200 dark:bg-zinc-800 text-slate-700 dark:text-zinc-300 px-3.5 py-1.5 rounded-md text-xs font-semibold border border-slate-300 dark:border-white/10 uppercase tracking-wider transition-colors">
             {subject}
           </div>
         </m.div>
@@ -199,12 +216,16 @@ const QuizView = ({ quizData, onBack }) => {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 rounded-[24px] p-8 md:p-12 mb-10 text-center shadow-sm dark:shadow-2xl flex flex-col items-center transition-colors"
+              className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 rounded-xl p-8 md:p-12 mb-10 text-center shadow-sm dark:shadow-2xl flex flex-col items-center transition-colors"
             >
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-emerald-500/10 text-emerald-500 mb-6 border border-emerald-500/20">
-                <CheckCircle2 size={40} strokeWidth={2} />
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-emerald-500/10 text-emerald-500 mb-6 border border-emerald-500/20">
+                <CheckCircle2 size={36} strokeWidth={2} />
               </div>
               <h2 className="text-3xl font-bold text-slate-900 dark:text-zinc-50 mb-3 tracking-tight transition-colors">Hoàn thành bài thi!</h2>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold mb-4 border border-emerald-500/20">
+                <span className="material-symbols-outlined text-[16px]">cloud_done</span>
+                Đã lưu kết quả vào tiến trình tài khoản của bạn
+              </div>
               <p className="text-slate-600 dark:text-zinc-400 text-lg transition-colors mb-8">
                 Bạn đã trả lời đúng <span className="text-slate-900 dark:text-zinc-50 font-bold text-3xl mx-1 transition-colors">{scoreResult !== null ? scoreResult : calculateScore()}</span> / {questions.length} câu hỏi.
               </p>
@@ -214,7 +235,7 @@ const QuizView = ({ quizData, onBack }) => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="w-full bg-blue-50/50 dark:bg-amber-500/10 border border-blue-100 dark:border-amber-500/20 rounded-2xl p-6 md:p-8 text-left mb-10 shadow-sm"
+                  className="w-full bg-blue-50/50 dark:bg-amber-500/10 border border-blue-100 dark:border-amber-500/20 rounded-lg p-6 md:p-8 text-left mb-10 shadow-sm"
                 >
                   <h4 className="font-bold text-blue-900 dark:text-amber-400 mb-4 flex items-center gap-2 text-lg">
                     <span className="text-xl">✨</span> Phân tích từ AI
@@ -227,7 +248,7 @@ const QuizView = ({ quizData, onBack }) => {
 
               <button 
                 onClick={onBack}
-                className="bg-slate-900 dark:bg-zinc-50 text-white dark:text-zinc-900 px-8 py-4 rounded-xl font-bold transition hover:opacity-90 active:scale-[0.98] w-full md:w-auto min-w-[200px]"
+                className="bg-slate-900 hover:bg-slate-800 dark:bg-zinc-50 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 px-8 py-3.5 rounded-lg font-bold transition active:scale-[0.98] w-full md:w-auto min-w-[200px] cursor-pointer"
               >
                 Làm bài khác
               </button>
@@ -245,7 +266,7 @@ const QuizView = ({ quizData, onBack }) => {
             transition={{ duration: 0.3 }}
             className="space-y-6"
           >
-            <div className="bg-white dark:bg-zinc-900/50 border border-slate-200 dark:border-white/5 p-6 md:p-8 rounded-[24px] shadow-sm dark:shadow-none transition-colors min-h-[300px]">
+            <div className="bg-white dark:bg-zinc-900/50 border border-slate-200 dark:border-white/5 p-6 md:p-8 rounded-xl shadow-sm dark:shadow-none transition-colors min-h-[300px]">
               <h3 className="text-lg md:text-xl font-medium text-slate-900 dark:text-zinc-50 mb-8 leading-relaxed transition-colors">
                 <span className="text-blue-500 dark:text-amber-500 font-bold mr-3 text-2xl transition-colors">{currentQuestionIndex + 1}.</span>
                 {currentQuestion.question}
@@ -254,7 +275,7 @@ const QuizView = ({ quizData, onBack }) => {
               <div className="space-y-3" role="group">
                 {currentQuestion.options.map((opt) => {
                   const isSelected = answers[currentQuestion.id] === opt;
-                  let optionClass = "w-full text-left flex items-start gap-4 p-4 md:p-5 rounded-xl border transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-950 ";
+                  let optionClass = "w-full text-left flex items-start gap-4 p-4 md:p-5 rounded-lg border transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-950 cursor-pointer ";
                   
                   if (isSelected) {
                     optionClass += "bg-blue-50 dark:bg-zinc-800 border-blue-500 dark:border-amber-500 text-slate-900 dark:text-zinc-50 shadow-sm md:shadow-md";
@@ -291,7 +312,7 @@ const QuizView = ({ quizData, onBack }) => {
               <button
                 onClick={goToPrev}
                 disabled={currentQuestionIndex === 0}
-                className="flex items-center justify-center gap-2 px-4 md:px-6 py-3.5 rounded-xl font-medium text-slate-600 dark:text-zinc-300 hover:bg-slate-200 dark:hover:bg-zinc-800 disabled:opacity-30 disabled:cursor-not-allowed transition bg-slate-100 dark:bg-zinc-900 w-1/3 md:w-auto"
+                className="flex items-center justify-center gap-2 px-4 md:px-6 py-3.5 rounded-lg font-medium text-slate-600 dark:text-zinc-300 hover:bg-slate-200 dark:hover:bg-zinc-800 disabled:opacity-30 disabled:cursor-not-allowed transition bg-slate-100 dark:bg-zinc-900 w-1/3 md:w-auto cursor-pointer"
               >
                 <ChevronLeft size={20} className="hidden md:block" />
                 <span>Trước</span>
@@ -300,7 +321,7 @@ const QuizView = ({ quizData, onBack }) => {
               {currentQuestionIndex < questions.length - 1 ? (
                 <button
                   onClick={goToNext}
-                  className="flex items-center justify-center gap-2 px-4 md:px-8 py-3.5 rounded-xl font-medium text-white dark:text-zinc-950 bg-slate-900 dark:bg-zinc-50 hover:opacity-90 transition active:scale-[0.98] flex-1 md:flex-none shadow-sm"
+                  className="flex items-center justify-center gap-2 px-4 md:px-8 py-3.5 rounded-lg font-medium text-white dark:text-zinc-950 bg-slate-900 hover:bg-slate-800 dark:bg-zinc-50 dark:hover:bg-zinc-200 transition active:scale-[0.98] flex-1 md:flex-none shadow-sm cursor-pointer"
                 >
                   <span>Tiếp tục</span>
                   <ChevronRight size={20} />
@@ -309,7 +330,7 @@ const QuizView = ({ quizData, onBack }) => {
                 <button 
                   onClick={handleSubmit}
                   disabled={answeredCount < questions.length}
-                  className="flex items-center justify-center gap-2 bg-blue-600 dark:bg-amber-500 hover:bg-blue-700 dark:hover:bg-amber-400 text-white dark:text-zinc-950 px-4 md:px-8 py-3.5 rounded-xl font-bold transition disabled:opacity-40 disabled:cursor-not-allowed active:scale-[0.98] flex-1 md:flex-none shadow-md"
+                  className="flex items-center justify-center gap-2 bg-blue-600 dark:bg-amber-500 hover:bg-blue-700 dark:hover:bg-amber-400 text-white dark:text-zinc-950 px-4 md:px-8 py-3.5 rounded-lg font-bold transition disabled:opacity-40 disabled:cursor-not-allowed active:scale-[0.98] flex-1 md:flex-none shadow-md cursor-pointer"
                 >
                   <CheckCircle2 size={20} className="hidden md:block" />
                   <span>Nộp bài ngay</span>

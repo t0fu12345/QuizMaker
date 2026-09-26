@@ -48,7 +48,7 @@ const FilterModal = ({ onClose, onStart }) => {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 rounded-2xl w-full max-w-md overflow-hidden shadow-lg dark:shadow-2xl relative z-10 transition-colors"
+        className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-white/10 rounded-xl w-full max-w-md overflow-hidden shadow-lg dark:shadow-2xl relative z-10 transition-colors"
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
@@ -59,7 +59,7 @@ const FilterModal = ({ onClose, onStart }) => {
           <button 
             onClick={onClose}
             aria-label="Đóng cửa sổ"
-            className="text-slate-400 hover:text-slate-900 dark:text-zinc-500 dark:hover:text-zinc-50 transition-colors p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-zinc-800 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-amber-500"
+            className="text-slate-400 hover:text-slate-900 dark:text-zinc-500 dark:hover:text-zinc-50 transition-colors p-1 rounded-md hover:bg-slate-100 dark:hover:bg-zinc-800 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-amber-500 cursor-pointer"
           >
             <X size={20} />
           </button>
@@ -77,7 +77,7 @@ const FilterModal = ({ onClose, onStart }) => {
                 id="subject-select"
                 value={selectedSubject}
                 onChange={(e) => setSelectedSubject(e.target.value)}
-                className="w-full bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-zinc-50 text-base rounded-xl px-4 py-3 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-amber-500 focus:border-blue-500 dark:focus:border-amber-500 transition cursor-pointer"
+                className="w-full bg-slate-50 dark:bg-zinc-950 border border-slate-300 dark:border-white/10 text-slate-900 dark:text-zinc-50 text-base rounded-lg px-4 py-3 appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-amber-500 focus:border-blue-500 dark:focus:border-amber-500 transition cursor-pointer"
               >
                 {SUBJECTS.map((sub) => (
                   <option key={sub.id} value={sub.id}>
@@ -105,7 +105,7 @@ const FilterModal = ({ onClose, onStart }) => {
                   type="button"
                   onClick={() => setQuestionCount(count)}
                   aria-pressed={questionCount === count}
-                  className={`py-2 rounded-xl text-sm font-medium transition duration-200 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-amber-500 ${
+                  className={`py-2 rounded-lg text-sm font-medium transition duration-200 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 dark:focus-visible:ring-amber-500 cursor-pointer ${
                     questionCount === count
                       ? 'bg-blue-600 dark:bg-zinc-50 text-white dark:text-zinc-950 shadow-sm border border-blue-600 dark:border-zinc-50'
                       : 'bg-slate-50 dark:bg-zinc-950 text-slate-600 dark:text-zinc-400 border border-slate-300 dark:border-white/10 hover:bg-slate-200 dark:hover:bg-zinc-800 hover:text-slate-900 dark:hover:text-zinc-200'
@@ -121,7 +121,7 @@ const FilterModal = ({ onClose, onStart }) => {
           <div className="pt-2">
             <button 
               type="submit"
-              className="w-full flex items-center justify-center gap-2 bg-blue-600 dark:bg-amber-500 hover:bg-blue-700 dark:hover:bg-amber-400 text-white dark:text-zinc-950 px-6 py-3.5 rounded-xl font-bold text-base transition duration-200 active:scale-[0.98] shadow-md dark:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 dark:focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-900"
+              className="w-full flex items-center justify-center gap-2 bg-blue-600 dark:bg-amber-500 hover:bg-blue-700 dark:hover:bg-amber-400 text-white dark:text-zinc-950 px-6 py-3.5 rounded-lg font-bold text-base transition duration-200 active:scale-[0.98] shadow-sm hover:shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300 dark:focus-visible:ring-amber-300 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-900 cursor-pointer"
             >
               <Play size={18} strokeWidth={2.5} />
               Bắt đầu làm bài

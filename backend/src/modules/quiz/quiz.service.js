@@ -26,8 +26,10 @@ const evaluateQuiz = async (userId, userAnswers) => {
 
     const uniqueMistakenTopics = Array.from(mistaken_topics);
 
-    // 1. GỌI SANG MODULE AI ĐỂ LẤY LỜI KHUYÊN
-    const aiAdvice = await aiService.getAdviceFromGemini(score, uniqueMistakenTopics);
+    // 1. GỌI SANG MODULE AI ĐỂ LẤY LỜI KHUYÊN (Kèm thêm metadata theo đề xuất của TV3)
+    const aiAdvice = await aiService.getAdviceFromGemini(score, uniqueMistakenTopics, {
+        totalQuestions: totalQuestions
+    });
 
     // 2. LƯU LỊCH SỬ VÀO DATABASE
     const attempt = new Attempt({

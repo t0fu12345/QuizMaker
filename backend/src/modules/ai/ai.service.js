@@ -2,7 +2,14 @@
 // MODULE DÀNH CHO TV3 (AI INTEGRATION & PROMPT ENGINEERING)
 // Quản lý tích hợp Google Gemini API, Prompt Engineering và Structured Output
 
-const { GoogleGenerativeAI, SchemaType } = require('@google/generative-ai');
+const SchemaType = {
+    STRING: "STRING",
+    NUMBER: "NUMBER",
+    INTEGER: "INTEGER",
+    BOOLEAN: "BOOLEAN",
+    ARRAY: "ARRAY",
+    OBJECT: "OBJECT",
+};
 
 /**
  * Cấu hình schema JSON bắt buộc cho Gemini Structured Outputs
@@ -94,27 +101,7 @@ const adviceResponseSchema = {
     ]
 };
 
-/**
- * Khởi tạo Gemini Model với cấu hình JSON output
- */
-const getGeminiModel = () => {
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey || apiKey === 'your_gemini_api_key_here') {
-        throw new Error('GEMINI_API_KEY chưa được cấu hình hợp lệ trong file .env');
-    }
-
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const modelName = process.env.GEMINI_MODEL || 'gemini-1.5-flash';
-
-    return genAI.getGenerativeModel({
-        model: modelName,
-        generationConfig: {
-            responseMimeType: 'application/json',
-            responseSchema: adviceResponseSchema,
-            temperature: 0.2, // Nhiệt độ thấp giúp phản hồi mang tính phân tích, chuẩn xác, không bị ảo giác
-        }
-    });
-};
+// Đã chuyển sang sử dụng native fetch để tương thích với mọi loại API Key
 
 /**
  * Xây dựng Prompt kỹ thuật (Prompt Engineering) chuyên sâu
@@ -218,7 +205,7 @@ const getFallbackAdvice = (score, mistakenTopics = [], metadata = {}) => {
  */
 const getAdviceFromGemini = async (score, mistakenTopics = [], metadata = {}) => {
     try {
-        const apiKey = process.env.GEMINI_API_KEY;
+        const apiKey = process.env.GEMINI_API_KEY?.trim();
         
         // Kiểm tra an toàn: Nếu chưa cấu hình Key hoặc dùng placeholder thì trả fallback an toàn
         if (!apiKey || apiKey === 'your_gemini_api_key_here') {
@@ -226,7 +213,6 @@ const getAdviceFromGemini = async (score, mistakenTopics = [], metadata = {}) =>
             return getFallbackAdvice(score, mistakenTopics, metadata);
         }
 
-        const model = getGeminiModel();
         const prompt = buildPrompt({
             score,
             totalQuestions: metadata.totalQuestions,
@@ -234,8 +220,29 @@ const getAdviceFromGemini = async (score, mistakenTopics = [], metadata = {}) =>
             subject: metadata.subject
         });
 
-        const result = await model.generateContent(prompt);
-        const responseText = result.response.text();
+        const modelName = process.env.GEMINI_MODEL || 'gemini-3.5-flash';
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
+
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                contents: [{ parts: [{ text: prompt }] }],
+                generationConfig: {
+                    responseMimeType: 'application/json',
+                    responseSchema: adviceResponseSchema,
+                    temperature: 0.2
+                }
+            })
+        });
+
+        if (!response.ok) {
+            const err = await response.text();
+            throw new Error(`Fetch API failed: ${response.status} - ${err}`);
+        }
+
+        const data = await response.json();
+        const responseText = data.candidates[0].content.parts[0].text;
 
         // Parse kết quả JSON trả về từ Gemini
         const parsedAdvice = JSON.parse(responseText);

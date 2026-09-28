@@ -19,7 +19,7 @@ const attemptSchema = new mongoose.Schema({
         type: String // Lưu lại các topic mà user trả lời sai
     }],
     ai_advice: {
-        type: String // Lưu phản hồi dạng chuỗi (hoặc JSON string) từ Gemini
+        type: mongoose.Schema.Types.Mixed // Đổi thành Mixed để lưu trực tiếp Object JSON từ Gemini
     }
 }, {
     timestamps: true

@@ -28,12 +28,12 @@ const LoadingScreen = () => {
         {/* Questions Skeleton (2 items) */}
         <div className="space-y-6">
           {[1, 2].map((i) => (
-            <div key={i} className="bg-slate-50 dark:bg-zinc-900/50 border border-slate-200 dark:border-white/5 p-6 md:p-8 rounded-[24px] transition-colors">
-              <div className="h-6 w-3/4 bg-slate-200 dark:bg-zinc-800 rounded mb-6 transition-colors"></div>
+            <div key={i} className="bg-slate-50 dark:bg-zinc-900/50 border border-slate-200 dark:border-white/5 p-6 md:p-8 rounded-xl transition-colors">
+              <div className="h-6 w-3/4 bg-slate-200 dark:bg-zinc-800 rounded-md mb-6 transition-colors"></div>
               
               <div className="space-y-3">
                 {[1, 2, 3, 4].map((j) => (
-                  <div key={j} className="h-14 w-full bg-white dark:bg-zinc-900 rounded-xl border border-slate-200 dark:border-white/5 transition-colors"></div>
+                  <div key={j} className="h-14 w-full bg-white dark:bg-zinc-900 rounded-lg border border-slate-200 dark:border-white/5 transition-colors"></div>
                 ))}
               </div>
             </div>

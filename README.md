@@ -1,51 +1,100 @@
-# ScoreUp - Quiz Maker & Practice Dashboard 🚀
+# 📋 ScoreUp AI Learning Advisor (MVP)
 
-![ScoreUp Banner](https://github.com/t0fu12345/QuizMaker/blob/main/stitch/screen.png?raw=true)
-
-> **ScoreUp** là nền tảng luyện tập trắc nghiệm và ôn luyện kiến thức, được thiết kế với giao diện Dark Mode tối giản, hiện đại (Glassmorphism) nhằm mang lại trải nghiệm học tập tập trung nhất.
-
-## 🌍 Xem Trực Tiếp (Live Demo)
-Trang web đang được tự động triển khai bằng GitHub Pages. Bạn có thể xem kết quả trực tiếp tại đây:
-👉 **[Truy cập ScoreUp Live Demo](https://t0fu12345.github.io/QuizMaker/)**
+> **Dự án**: ScoreUp — Nền tảng thi trắc nghiệm có AI phân tích điểm yếu và gợi ý lộ trình học.
+> **Quy mô**: Mini-project sinh viên (Phiên bản Tối giản - MVP)
+> **Tech stack**: React (Frontend) · Node.js + Express (Backend) · MongoDB · Gemini API (AI)
 
 ---
 
-## 🛠 Công Nghệ Sử Dụng
-Dự án được xây dựng dựa trên các công nghệ hiện đại nhất dành cho Web:
-- **[React 19](https://react.dev/)**: Thư viện UI cốt lõi.
-- **[Vite](https://vitejs.dev/)**: Trình đóng gói (bundler) cực nhanh.
-- **[Tailwind CSS v4](https://tailwindcss.com/)**: CSS Framework được thiết lập chuẩn xác để tạo ra giao diện Glassmorphism mượt mà.
-- **[React Router v7](https://reactrouter.com/)**: Xử lý điều hướng đa trang (SPA).
-- **[Lucide React](https://lucide.dev/)**: Hệ thống icon vector tối giản.
-- **GitHub Actions**: Tự động hóa quá trình Build & Deploy lên GitHub Pages.
+## 🎯 Mục tiêu cốt lõi (MVP)
+Phiên bản này tập trung giải quyết đúng 1 bài toán: **Người dùng làm bài thi ➡️ Hệ thống tổng hợp lỗi sai theo chủ đề ➡️ AI đưa ra lời khuyên cá nhân hóa.**
 
-## 📁 Cấu Trúc Dự Án
-- `quiz-maker/`: Mã nguồn chính của ứng dụng web React.
-  - `src/components/`: Chứa các mảnh ghép giao diện (Header, Sidebar, HeroBanner, FilterCard,...).
-  - `src/layouts/`: Bố cục trang tổng quát của Dashboard.
-  - `src/pages/`: Các trang chính như Luyện tập (PracticeDashboard).
-  - `database/`: Chứa dữ liệu JSON trích xuất tự động từ các tài liệu môn học (PDF) thông qua AI.
-- `stitch/`: Chứa các tài nguyên thiết kế ban đầu (`DESIGN.md`, `screen.png`).
-
-## 🚀 Chạy Chế Độ Phát Triển (Local Development)
-
-Nếu bạn muốn chạy dự án này trên máy tính cá nhân:
-
-1. Đảm bảo bạn đã cài đặt [Node.js](https://nodejs.org/).
-2. Sao chép (clone) kho chứa này về máy:
-   ```bash
-   git clone https://github.com/t0fu12345/QuizMaker.git
-   ```
-3. Di chuyển vào thư mục dự án và cài đặt thư viện:
-   ```bash
-   cd QuizMaker/quiz-maker
-   npm install
-   ```
-4. Khởi động server lập trình:
-   ```bash
-   npm run dev
-   ```
-5. Mở trình duyệt tại đường dẫn `http://localhost:5173`.
+Các tính năng rườm rà (Quản lý CRUD câu hỏi, tự động phân tích độ khó...) tạm thời được cắt bỏ để tập trung vào luồng chính.
 
 ---
-*Được phát triển tự động kết hợp với AI Agent từ thiết kế UI ban đầu.*
+
+## 👥 Vai trò & Tính năng
+
+### 1. Admin (Người quản trị dữ liệu)
+- **Không yêu cầu giao diện (No UI needed)**: Admin tương tác trực tiếp với Database/File cấu hình.
+- **Data Tagging (Gắn thẻ tri thức)**: Chuẩn bị ngân hàng câu hỏi. Trách nhiệm của Admin là đảm bảo mỗi câu hỏi đều được gán đúng `topic` (chủ đề kiến thức) và `difficulty` (độ khó). 
+  *(Ví dụ: Câu 1 - Topic: "Vòng lặp For", Câu 2 - Topic: "Biến trong JS").*
+
+### 2. User (Người học)
+- **Làm bài thi**: Chọn môn học và trả lời các câu hỏi trắc nghiệm.
+- **Nhận kết quả & AI Phân tích**: Sau khi bấm nộp bài, User sẽ thấy:
+  - Tổng điểm và chi tiết câu Đúng/Sai.
+  - **Nhận xét từ AI**: Chỉ ra chính xác User đang hổng kiến thức ở "Topic" nào (dựa trên Data Tagging của Admin).
+  - **Lộ trình học tập**: AI gợi ý các bước ôn tập tiếp theo.
+
+---
+
+## ⚙️ Luồng hoạt động hệ thống
+
+```mermaid
+sequenceDiagram
+    participant Frontend
+    participant Backend
+    participant MongoDB
+    participant GeminiAPI
+
+    Frontend->>Backend: 1. Nộp bài (Danh sách đáp án)
+    Backend->>MongoDB: 2. Đối chiếu đáp án & Chấm điểm
+    Backend->>Backend: 3. Tổng hợp lỗi sai theo Topic
+    Backend->>GeminiAPI: 4. Gửi Prompt (Điểm + Các topic sai...)
+    GeminiAPI-->>Backend: 5. Trả về nhận xét & Lộ trình (JSON)
+    Backend-->>Frontend: 6. Trả kết quả cuối cùng cho User
+```
+
+---
+
+## 🛠 Phân chia Đầu việc (4 Thành viên)
+
+### 👤 TV1 — Frontend (Giao diện)
+- Xây dựng giao diện thi trắc nghiệm (chọn đáp án).
+- Đóng gói dữ liệu bài thi (ID câu hỏi, đáp án đã chọn) gửi lên API `POST /api/submit`.
+- Xây dựng UI hiển thị điểm số và render kết quả Lời khuyên/Lộ trình do AI trả về.
+
+### 👤 TV2 — Backend Core (Kiến trúc MCS)
+- Dựng server Node.js theo kiến trúc Modular (Auth, Users, Questions, AI).
+- Viết API `GET /api/questions` để gửi danh sách câu hỏi cho Frontend.
+- Viết API `POST /api/submit`: Nhận bài làm, đối chiếu đáp án, tính điểm, lưu lịch sử bài làm vào MongoDB.
+- Phối hợp với TV3 để gọi module AI sau khi chấm điểm xong.
+
+### 👤 TV3 — AI Integration (Tích hợp AI)
+- Viết module kết nối với Google Gemini API.
+- **Prompt Engineering**: Thiết kế Prompt động để nhét dữ liệu bài làm (Ví dụ: *"User này thi được 4/10 điểm, sai nhiều nhất ở topic 'Vòng lặp'..."*).
+- Ép AI trả về đúng format (JSON) để Frontend dễ dàng vẽ UI.
+
+### 👤 TV4 — Data & Testing (Dữ liệu)
+- **Data Tagging**: Soạn thảo bộ câu hỏi mẫu (file JSON hoặc DB init). Gắn tag (Topic) chuẩn xác cho từng câu hỏi.
+- Thiết lập MongoDB Atlas (Cloud) và chia sẻ URI cho cả nhóm.
+- Đóng vai trò QA/Tester: Chạy thử luồng từ lúc thi đến lúc AI trả kết quả để đảm bảo không gãy luồng.
+
+---
+
+## 📂 Cấu trúc Backend hiện tại
+Dự án sử dụng kiến trúc MCS (Module - Controller - Service):
+```text
+src/
+ ├── core/          # Cấu hình Database, Utilities
+ ├── modules/       # Chứa logic nghiệp vụ chia theo tính năng
+ │    ├── auth/
+ │    ├── users/
+ │    ├── questions/
+ │    └── ai/       # Nơi TV3 làm việc
+ └── routes/        # Nơi đăng ký đường dẫn API
+```
+
+---
+
+## 🖼 Cấu trúc Frontend (React)
+
+```text
+frontend/src/
+ ├── components/    # Các UI Component dùng chung (Button, Modal, Loading...)
+ ├── pages/         # Các màn hình chính (Home, QuizView, ResultView)
+ ├── services/      # Các hàm fetch/axios để gọi API tới Backend
+ ├── utils/         # Các hàm tiện ích (Format ngày giờ, tính toán thời gian...)
+ └── App.jsx        # Nơi khai báo các Route (Đường dẫn trang)
+```

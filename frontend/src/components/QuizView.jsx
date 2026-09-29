@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { ArrowLeft, CheckCircle2, XCircle, Check, Loader2, ChevronRight, ChevronLeft } from 'lucide-react';
 import { m, AnimatePresence } from 'motion/react';
 import { recordQuizForCurrentUser } from '../utils/auth';
+import { fetchApi } from '../utils/api';
 
 const QuizView = ({ quizData, onBack }) => {
   const { subject, questions } = quizData;
@@ -66,7 +67,6 @@ const QuizView = ({ quizData, onBack }) => {
     setIsSubmitting(true);
     topRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-    const userId = localStorage.getItem('userId') || 'guest_unknown';
     const finalTimeSpent = { ...timeSpent };
     
     // Add time for the very last question interaction
@@ -74,63 +74,36 @@ const QuizView = ({ quizData, onBack }) => {
     finalTimeSpent[currentQuestion.id] = (finalTimeSpent[currentQuestion.id] || 0) + currentElapsed;
 
     const answersData = questions.map(q => ({
-      question_id: q.id,
-      selected: answers[q.id] || null,
-      time_spent: finalTimeSpent[q.id] || 0
+      questionId: q.id,
+      selected: answers[q.id] || null
     }));
 
-    const payload = {
-      userId,
-      subjectId: subject,
-      answers: answersData
-    };
-
     try {
-      const res = await fetch('http://localhost:3001/api/submit', {
+      const result = await fetchApi('/quiz/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({ answers: answersData })
       });
       
-      let finalScore = 0;
-      if (res.ok) {
-        const result = await res.json();
-        finalScore = result.score;
+      setScoreResult(result.score);
+      
+      // Parse AI advice
+      if (typeof result.ai_advice === 'object' && result.ai_advice !== null) {
+        setAiAdvice(result.ai_advice.summary + " " + (result.ai_advice.motivationalMessage || ""));
       } else {
-        finalScore = calculateScore();
+        setAiAdvice(result.ai_advice || "Chấm điểm hoàn tất!");
       }
-      setScoreResult(finalScore);
 
-      const calculatedCorrect = calculateScore();
       recordQuizForCurrentUser({
         subject: subject || 'Luyện đề',
-        score: typeof finalScore === 'number' ? finalScore : calculatedCorrect,
+        score: result.score,
         totalQuestions: questions.length,
-        correctCount: calculatedCorrect
+        correctCount: result.score
       });
-
-      const adviceRes = await fetch(`http://localhost:3001/api/advice?userId=${userId}`);
-      if (adviceRes.ok) {
-        const adviceResult = await adviceRes.json();
-        setAiAdvice(adviceResult.advice || adviceResult.message || "Bạn làm rất tốt, tiếp tục phát huy nhé!");
-      } else {
-        throw new Error('Advice API failed');
-      }
 
     } catch (err) {
-      console.error("API call failed, using mock data.", err);
-      // Mock data when server is not running (2s delay)
-      await new Promise(r => setTimeout(r, 2000));
-      const fallbackScore = calculateScore();
-      setScoreResult(fallbackScore);
-      setAiAdvice("AI thấy rằng bạn cần ôn tập thêm về các khái niệm cơ bản. Hãy xem lại bài giảng để củng cố kiến thức nhé!");
-      
-      recordQuizForCurrentUser({
-        subject: subject || 'Luyện đề',
-        score: fallbackScore,
-        totalQuestions: questions.length,
-        correctCount: fallbackScore
-      });
+      console.error("API call failed.", err);
+      setScoreResult(0);
+      setAiAdvice("Đã xảy ra lỗi hệ thống hoặc không thể gọi AI lúc này. Vui lòng thử lại sau.");
     } finally {
       setIsSubmitting(false);
       setIsSubmitted(true);

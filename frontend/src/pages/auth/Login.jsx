@@ -11,21 +11,23 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage('');
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      const res = loginUser(identifier, password);
-      setIsSubmitting(false);
-
+    try {
+      const res = await loginUser(identifier, password);
       if (res.success) {
         navigate('/');
       } else {
         setErrorMessage(res.message);
       }
-    }, 600);
+    } catch (err) {
+      setErrorMessage("Đã xảy ra lỗi hệ thống.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleQuickFill = (demoEmail, demoPass) => {

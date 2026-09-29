@@ -92,7 +92,7 @@ const Register = () => {
     }
   }, [password]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage('');
 
@@ -112,16 +112,18 @@ const Register = () => {
     }
 
     setIsSubmitting(true);
-    setTimeout(() => {
-      const res = registerUser({ username, email, password });
-      setIsSubmitting(false);
-
+    try {
+      const res = await registerUser({ username, email, password });
       if (res.success) {
         navigate('/');
       } else {
         setErrorMessage(res.message);
       }
-    }, 600);
+    } catch (err) {
+      setErrorMessage("Đã xảy ra lỗi hệ thống.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

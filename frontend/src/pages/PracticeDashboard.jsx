@@ -5,17 +5,27 @@ import FilterCard from '../components/FilterCard';
 import FilterModal from '../components/FilterModal';
 import LoadingScreen from '../components/LoadingScreen';
 import QuizView from '../components/QuizView';
+import { fetchApi } from '../utils/api';
 
-const fetchQuestionsData = async (subjectId) => {
-  switch(subjectId) {
-    case 'c': return (await import('../../database/questions/c_questions.json')).default;
-    case 'html5': return (await import('../../database/questions/html5_questions.json')).default;
-    case 'reactjs': return (await import('../../database/questions/reactjs_questions.json')).default;
-    case 'sql_server': return (await import('../../database/questions/sql_server_questions.json')).default;
-    case 'uiux': return (await import('../../database/questions/uiux_questions.json')).default;
-    case 'aiessen': return (await import('../../database/questions/aiessen_questions.json')).default;
-    case 'github': return (await import('../../database/questions/github_questions.json')).default;
-    default: return null;
+const fetchQuestionsData = async (subjectId, count) => {
+  try {
+    const rawQuestions = await fetchApi(`/questions?limit=${count}&topic=${subjectId}`);
+    
+    const mappedQuestions = rawQuestions.map(q => ({
+      id: q._id,
+      question: q.content,
+      options: q.options,
+      topic: q.topic,
+      difficulty: q.difficulty
+    }));
+
+    return {
+      subject: subjectId,
+      questions: mappedQuestions
+    };
+  } catch (error) {
+    console.error("Fetch API err:", error);
+    return null;
   }
 };
 
@@ -44,7 +54,7 @@ const PracticeDashboard = () => {
     setIsLoading(true);
 
     try {
-      const data = await fetchQuestionsData(config.subject);
+      const data = await fetchQuestionsData(config.subject, config.count);
       
       if (data && data.questions) {
         // Lấy ngẫu nhiên N câu hỏi
